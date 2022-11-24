@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EcoshippingApplication {
 
 	public static void main(String[] args) {
-		System.out.println("dffddf");
+		prova
 		SpringApplication.run(EcoshippingApplication.class, args);
 	}
 
