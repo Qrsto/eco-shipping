@@ -9,6 +9,8 @@ public class EcoshippingApplication {
 	public static void main(String[] args) {
 		prova
 		SpringApplication.run(EcoshippingApplication.class, args);
+		dsdsù
+			
 	}
 
 }
