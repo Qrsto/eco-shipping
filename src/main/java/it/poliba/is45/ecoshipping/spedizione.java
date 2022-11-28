@@ -62,4 +62,9 @@ public class spedizione {
     public String getNote_stato_nc() {
         return note_stato_nc;
     }
+
+
+
+     //   domande: costruttore si omette? metodiSet degli attributi (y,n) ? metodo riga38 check.. è utile??
+
 }
