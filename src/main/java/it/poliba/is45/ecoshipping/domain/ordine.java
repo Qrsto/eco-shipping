@@ -1,4 +1,4 @@
-package it.poliba.is45.ecoshipping;
+package it.poliba.is45.ecoshipping.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -61,8 +61,7 @@ public class ordine {
 		return num_telefono_destinatario;
 	}
 
-	public void setNum_telefono_destinatario(int num_telefono_destinatario) {
-		this.num_telefono_destinatario = num_telefono_destinatario;
+	public void setNum_telefono_destinatario(int num_telefono_destinatario) { this.num_telefono_destinatario = num_telefono_destinatario;
 	}
 
 	public String getMetodo_pagamento() {

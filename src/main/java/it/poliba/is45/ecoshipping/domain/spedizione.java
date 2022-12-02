@@ -1,4 +1,4 @@
-package it.poliba.is45.ecoshipping;
+package it.poliba.is45.ecoshipping.domain;
 
 import it.poliba.is45.ecoshipping.Enum.Tipo_stato;
 
@@ -21,7 +21,7 @@ public class spedizione {
     //Può essere anche null (se tipostato != "Non c..")
     private String note_stato_nc;
 
-    protected spedizione() {}
+
 
     public spedizione(Date data_evasione, Time ora_evasione, Tipo_stato tipo_stato, String note_stato_nc) {
         this.data_evasione = data_evasione;
@@ -31,7 +31,7 @@ public class spedizione {
         //controllo se lo stato è su non consegnato: se si prendo anche la nota_stato_nc altrimenti lo setto a null
         if (checkNonConsegnato(tipo_stato))
             this.note_stato_nc = note_stato_nc;
-        this.note_stato_nc = null;
+
 
     }
 

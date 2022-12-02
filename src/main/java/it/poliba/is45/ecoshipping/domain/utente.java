@@ -1,20 +1,19 @@
-package it.poliba.is45.ecoshipping;
+package it.poliba.is45.ecoshipping.domain;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class utente {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_utente;
     private String nome;
     private String cognome;
-    private String indirizzo_residenza;
+    @Column(name = "indirizzo_residenza")
+    private String indirizzoResidenza;  //applicarlo a tutte lentita
     private String citta;
     private String cap;
     private String data_nas;
@@ -51,11 +50,11 @@ public class utente {
     }
 
     public String getIndirizzo_residenza() {
-        return indirizzo_residenza;
+        return indirizzoResidenza;
     }
 
     public void setIndirizzo_residenza(String indirizzo_residenza) {
-        this.indirizzo_residenza = indirizzo_residenza;
+        this.indirizzoResidenza = indirizzo_residenza;
     }
 
     public String getCitta() {
@@ -137,4 +136,6 @@ public class utente {
     public void setDisponibilita_lavoro(boolean disponibilita_lavoro) {
         this.disponibilita_lavoro = disponibilita_lavoro;
     }
+
+    //lombok: libreria da vedere
 }
