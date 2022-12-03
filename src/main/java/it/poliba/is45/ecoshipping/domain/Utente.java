@@ -1,6 +1,8 @@
 package it.poliba.is45.ecoshipping.domain;
 
 
+import it.poliba.is45.ecoshipping.Enum.TipoUtente;
+
 import javax.persistence.*;
 
 @Entity
@@ -22,7 +24,7 @@ public class Utente {
     private String password;
     private String IBAN;
     @Column(name = "tipo_utente")
-    private String tipoUtente;
+    private TipoUtente tipoUtente;
     @Column(name = "longitudine_rider")
     private double longitudineRider;
     @Column(name = "latitudine_rider")
@@ -42,7 +44,7 @@ public class Utente {
         this.numTelefono = numTelefono;
         this.password = password;
         this.IBAN = IBAN;
-        this.tipoUtente = tipoUtente;
+        this.tipoUtente = TipoUtente.valueOf(tipoUtente);
         this.longitudineRider = longitudineRider;
         this.latitudineRider = latitudineRider;
         this.disponibilitaLavoro = disponibilitaLavoro;
