@@ -1,21 +1,19 @@
 package it.poliba.is45.ecoshipping.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-public class ConfigurazioneCostiSpedizioni {
+public class TabellaConfigurazione {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //aggiungere attrib (long) id
-    private float costo_100_grammi; // Il costo della spedizione aumenta ogni 100 grammi
-    private float costo_KM; // Il costo della spedizione viene elaborato in base ai Km percorsi
+@Column(name = "costo_100_grammi")
+    private float costo100Grammi;
+    @Column(name = "costo_km")
+    private float costoKM;
 
-    public ConfigurazioneCostiSpedizioni(float costo_100_grammi, float costo_KM) {
-        this.costo_100_grammi = costo_100_grammi;
-        this.costo_KM = costo_KM;
+    public TabellaConfigurazione(float costo100Grammi, float costoKM) {
+        this.costo100Grammi = costo100Grammi;
+        this.costoKM = costoKM;
     }
 }

@@ -1,6 +1,6 @@
 package it.poliba.is45.ecoshipping.Enum;
 
-public enum Tipo_stato {
+public enum TipoStato {
     NUOVO,
     PRESO_IN_CARICO,
     IN_CONSEGNA,

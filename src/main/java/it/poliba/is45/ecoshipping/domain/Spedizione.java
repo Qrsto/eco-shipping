@@ -1,6 +1,6 @@
 package it.poliba.is45.ecoshipping.domain;
 
-import it.poliba.is45.ecoshipping.Enum.Tipo_stato;
+import it.poliba.is45.ecoshipping.Enum.TipoStato;
 
 
 import javax.persistence.*;
@@ -9,62 +9,45 @@ import java.util.Date;
 
 
 @Entity
-public class spedizione {
+public class Spedizione {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id_ordine;             //PK
     private int id_rider;              //FK
-    private Date data_evasione;
-    private Time ora_evasione;
-    private Tipo_stato tipo_stato;
+    @Column(name = "data_evasione")
+    private Date dataEvasione;
+    @Column(name = "ora_evasione")
+    private Time oraEvasione;
+    @Column(name = "tipo_stato")
+    private TipoStato tipoStato;
     //Può essere anche null (se tipostato != "Non c..")
-    private String note_stato_nc;
+    @Column(name = "note_stato_nc")
+    private String noteStatoNc;
 
 
 
-    public spedizione(Date data_evasione, Time ora_evasione, Tipo_stato tipo_stato, String note_stato_nc) {
-        this.data_evasione = data_evasione;
-        this.ora_evasione = ora_evasione;
-        this.tipo_stato = tipo_stato;
+    public Spedizione(Date data_evasione, Time ora_evasione, TipoStato tipo_stato, String note_stato_nc) {
+        this.dataEvasione = data_evasione;
+        this.oraEvasione = ora_evasione;
+        this.tipoStato = tipo_stato;
 
         //controllo se lo stato è su non consegnato: se si prendo anche la nota_stato_nc altrimenti lo setto a null
         if (checkNonConsegnato(tipo_stato))
-            this.note_stato_nc = note_stato_nc;
-
+            this.noteStatoNc = note_stato_nc;
 
     }
 
-    private boolean checkNonConsegnato (Tipo_stato tipo_stato) {
-        return tipo_stato == Tipo_stato.NON_CONSEGNATO;
+    private boolean checkNonConsegnato (TipoStato tipo_stato) {
+        return tipo_stato == TipoStato.NON_CONSEGNATO;
     }
 
-    public int getId_ordine() {
-        return id_ordine;
+    public Spedizione(int id_ordine, int id_rider, Date dataEvasione, Time oraEvasione, TipoStato tipoStato, String noteStatoNc) {
+        this.id_ordine = id_ordine;
+        this.id_rider = id_rider;
+        this.dataEvasione = dataEvasione;
+        this.oraEvasione = oraEvasione;
+        this.tipoStato = tipoStato;
+        this.noteStatoNc = noteStatoNc;
     }
-
-    public int getId_rider() {
-        return id_rider;
-    }
-
-    public Date getData_evasione() {
-        return data_evasione;
-    }
-
-    public Time getOra_evasione() {
-        return ora_evasione;
-    }
-
-    public Tipo_stato getTipo_stato() {
-        return tipo_stato;
-    }
-
-    public String getNote_stato_nc() {
-        return note_stato_nc;
-    }
-
-
-
-     //   domande: costruttore si omette? metodiSet degli attributi (y,n) ? metodo riga38 check.. è utile??
-
 }

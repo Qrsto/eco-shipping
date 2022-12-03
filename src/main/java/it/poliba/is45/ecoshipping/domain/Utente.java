@@ -4,7 +4,7 @@ package it.poliba.is45.ecoshipping.domain;
 import javax.persistence.*;
 
 @Entity
-public class utente {
+public class Utente {
 
 
     @Id
@@ -17,125 +17,34 @@ public class utente {
     private String citta;
     private String cap;
     private String data_nas;
-    private String num_telefono;
+    @Column(name = "num_telefono")
+    private String numTelefono;
     private String password;
     private String IBAN;
-    private String tipo_utente;
-    private double longitudine_rider;
-    private double latitudine_rider;
-    private boolean disponibilita_lavoro;
+    @Column(name = "tipo_utente")
+    private String tipoUtente;
+    @Column(name = "longitudine_rider")
+    private double longitudineRider;
+    @Column(name = "latitudine_rider")
+    private double latitudineRider;
+    @Column(name = "disponibilita_lavoro")
+    private boolean disponibilitaLavoro;
 
-    public Long getId_utente() {
-        return id_utente;
-    }
 
-    public void setId_utente(Long id_utente) {
+    public Utente(Long id_utente, String nome, String cognome, String indirizzoResidenza, String citta, String cap, String data_nas, String numTelefono, String password, String IBAN, String tipoUtente, double longitudineRider, double latitudineRider, boolean disponibilitaLavoro) {
         this.id_utente = id_utente;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getCognome() {
-        return cognome;
-    }
-
-    public void setCognome(String cognome) {
         this.cognome = cognome;
-    }
-
-    public String getIndirizzo_residenza() {
-        return indirizzoResidenza;
-    }
-
-    public void setIndirizzo_residenza(String indirizzo_residenza) {
-        this.indirizzoResidenza = indirizzo_residenza;
-    }
-
-    public String getCitta() {
-        return citta;
-    }
-
-    public void setCitta(String citta) {
+        this.indirizzoResidenza = indirizzoResidenza;
         this.citta = citta;
-    }
-
-    public String getCap() {
-        return cap;
-    }
-
-    public void setCap(String cap) {
         this.cap = cap;
-    }
-
-    public String getData_nas() {
-        return data_nas;
-    }
-
-    public void setData_nas(String data_nas) {
         this.data_nas = data_nas;
-    }
-
-    public String getNum_telefono() {
-        return num_telefono;
-    }
-
-    public void setNum_telefono(String num_telefono) {
-        this.num_telefono = num_telefono;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
+        this.numTelefono = numTelefono;
         this.password = password;
-    }
-
-    public String getIBAN() {
-        return IBAN;
-    }
-
-    public void setIBAN(String IBAN) {
         this.IBAN = IBAN;
+        this.tipoUtente = tipoUtente;
+        this.longitudineRider = longitudineRider;
+        this.latitudineRider = latitudineRider;
+        this.disponibilitaLavoro = disponibilitaLavoro;
     }
-
-    public String getTipo_utente() {
-        return tipo_utente;
-    }
-
-    public void setTipo_utente(String tipo_utente) {
-        this.tipo_utente = tipo_utente;
-    }
-
-    public double getLongitudine_rider() {
-        return longitudine_rider;
-    }
-
-    public void setLongitudine_rider(double longitudine_rider) {
-        this.longitudine_rider = longitudine_rider;
-    }
-
-    public double getLatitudine_rider() {
-        return latitudine_rider;
-    }
-
-    public void setLatitudine_rider(double latitudine_rider) {
-        this.latitudine_rider = latitudine_rider;
-    }
-
-    public boolean isDisponibilita_lavoro() {
-        return disponibilita_lavoro;
-    }
-
-    public void setDisponibilita_lavoro(boolean disponibilita_lavoro) {
-        this.disponibilita_lavoro = disponibilita_lavoro;
-    }
-
-    //lombok: libreria da vedere
 }
