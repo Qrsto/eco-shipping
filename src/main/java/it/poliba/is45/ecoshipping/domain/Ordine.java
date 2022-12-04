@@ -1,6 +1,16 @@
 package it.poliba.is45.ecoshipping.domain;
 
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import javax.persistence.*;
+
+@Getter               //METODI (GRAZIE A LOMBOCK)
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+
 
 @Entity
 public class Ordine {
@@ -36,20 +46,5 @@ public class Ordine {
 	@Column(name = "id_utente")
 	private int idUtente;
 
-	public Ordine(int idOrdine, String indirizzoPartenza, String indirizzoConsegna, float volumeSpedizione, int numTelefonoDestinatario, String metodoPagamento, String noteConsegna, String fasciaOraria, float costoFinale, double longitudinePartenza, double latitudinePartenza, double longitudineDestinazione, double latitudineDestinazione, int idUtente) {
-		this.idOrdine = idOrdine;
-		this.indirizzoPartenza = indirizzoPartenza;
-		this.indirizzoConsegna = indirizzoConsegna;
-		this.volumeSpedizione = volumeSpedizione;
-		this.numTelefonoDestinatario = numTelefonoDestinatario;
-		this.metodoPagamento = metodoPagamento;
-		this.noteConsegna = noteConsegna;
-		this.fasciaOraria = fasciaOraria;
-		this.costoFinale = costoFinale;
-		this.longitudinePartenza = longitudinePartenza;
-		this.latitudinePartenza = latitudinePartenza;
-		this.longitudineDestinazione = longitudineDestinazione;
-		this.latitudineDestinazione = latitudineDestinazione;
-		this.idUtente = idUtente;
-	}
+
 }

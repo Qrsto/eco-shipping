@@ -2,8 +2,16 @@ package it.poliba.is45.ecoshipping.domain;
 
 
 import it.poliba.is45.ecoshipping.Enum.TipoUtente;
-
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import javax.persistence.*;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 
 @Entity
 public class Utente {
@@ -33,23 +41,6 @@ public class Utente {
     private boolean disponibilitaLavoro;
 
 
-    public Utente() {}
 
-    public Utente(long id_utente, String nome, String cognome, String indirizzoResidenza, String citta, String cap, String data_nas, String numTelefono, String password, String IBAN, String tipoUtente, double longitudineRider, double latitudineRider, boolean disponibilitaLavoro) {
-        this.id_utente = id_utente;
-        this.nome = nome;
-        this.cognome = cognome;
-        this.indirizzoResidenza = indirizzoResidenza;
-        this.citta = citta;
-        this.cap = cap;
-        this.data_nas = data_nas;
-        this.numTelefono = numTelefono;
-        this.password = password;
-        this.IBAN = IBAN;
-        this.tipoUtente = TipoUtente.valueOf(tipoUtente);
-        this.longitudineRider = longitudineRider;
-        this.latitudineRider = latitudineRider;
-        this.disponibilitaLavoro = disponibilitaLavoro;
-    }
 
 }
