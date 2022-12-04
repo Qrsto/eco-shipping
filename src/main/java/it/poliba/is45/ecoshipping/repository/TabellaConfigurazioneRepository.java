@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TabellaConfigurazioneRepository extends JpaRepository<TabellaConfigurazione, Float> {
+
 }

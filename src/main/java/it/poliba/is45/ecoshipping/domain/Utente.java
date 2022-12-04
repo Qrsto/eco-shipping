@@ -11,7 +11,7 @@ public class Utente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id_utente;
+    private long id_utente;
     private String nome;
     private String cognome;
     @Column(name = "indirizzo_residenza")
@@ -33,7 +33,9 @@ public class Utente {
     private boolean disponibilitaLavoro;
 
 
-    public Utente(Long id_utente, String nome, String cognome, String indirizzoResidenza, String citta, String cap, String data_nas, String numTelefono, String password, String IBAN, String tipoUtente, double longitudineRider, double latitudineRider, boolean disponibilitaLavoro) {
+    public Utente() {}
+
+    public Utente(long id_utente, String nome, String cognome, String indirizzoResidenza, String citta, String cap, String data_nas, String numTelefono, String password, String IBAN, String tipoUtente, double longitudineRider, double latitudineRider, boolean disponibilitaLavoro) {
         this.id_utente = id_utente;
         this.nome = nome;
         this.cognome = cognome;
@@ -49,4 +51,5 @@ public class Utente {
         this.latitudineRider = latitudineRider;
         this.disponibilitaLavoro = disponibilitaLavoro;
     }
+
 }
