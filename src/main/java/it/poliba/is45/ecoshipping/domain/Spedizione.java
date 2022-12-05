@@ -34,10 +34,12 @@ public class Spedizione {
 
 
 
-    //scegliere se implementare o meno
+    /*scegliere se implementare o meno
     private boolean checkNonConsegnato (TipoStato tipo_stato) {
         return tipo_stato == TipoStato.NON_CONSEGNATO;
     }
+
+*/
 
 
 }

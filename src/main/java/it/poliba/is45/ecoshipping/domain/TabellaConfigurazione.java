@@ -14,16 +14,14 @@ import javax.persistence.*;
 
 
 @Entity
-
+@Table(name = "tabella_di_configurazione")
 public class TabellaConfigurazione {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
-    @Column(name = "costo_100_grammi")
-    private float costo100Grammi;
-    @Column(name = "costo_km")
-    private float costoKM;
+    @Column(name = "conf_key")
+    private String confKey;
+    @Column(name = "conf_value")
+    private String confValue;
 
 
 }

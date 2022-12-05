@@ -19,7 +19,9 @@ public class Utente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id_utente;
+
+    @Column(name = "id_utente")
+    private long idUtente;
     private String nome;
     private String cognome;
     @Column(name = "indirizzo_residenza")
@@ -31,6 +33,7 @@ public class Utente {
     private String numTelefono;
     private String password;
     private String IBAN;
+    @Enumerated(EnumType.STRING)
     @Column(name = "tipo_utente")
     private TipoUtente tipoUtente;
     @Column(name = "longitudine_rider")
