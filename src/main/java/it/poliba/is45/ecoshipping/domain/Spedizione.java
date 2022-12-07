@@ -1,6 +1,6 @@
 package it.poliba.is45.ecoshipping.domain;
 
-import it.poliba.is45.ecoshipping.Enum.TipoStato;
+import it.poliba.is45.ecoshipping.enumeratives.TipoStato;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.AllArgsConstructor;

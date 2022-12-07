@@ -1,7 +1,7 @@
 package it.poliba.is45.ecoshipping.domain;
 
 
-import it.poliba.is45.ecoshipping.Enum.TipoUtente;
+import it.poliba.is45.ecoshipping.enumeratives.TipoUtente;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,10 +25,11 @@ public class Utente {
     private String nome;
     private String cognome;
     @Column(name = "indirizzo_residenza")
-    private String indirizzoResidenza;  //applicarlo a tutte lentita
+    private String indirizzoResidenza;
     private String citta;
     private String cap;
-    private String data_nas;
+    @Column(name = "data_nas")
+    private String dataNasc;
     @Column(name = "num_telefono")
     private String numTelefono;
     private String password;
