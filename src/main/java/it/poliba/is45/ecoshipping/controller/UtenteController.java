@@ -23,10 +23,21 @@ public class UtenteController {
        return ResponseEntity.ok(utenteDtoList);
     }
 
-    @PostMapping("utenti/nuovo")
-    public ResponseEntity<Utente> createNewUser(@RequestBody UtenteDto utenteDto) {
+    @PostMapping("utenti/nuovoCliente")
+    public ResponseEntity<Utente> createNewClientUser(@RequestBody UtenteDto utenteDto) {
        return ResponseEntity.ok(utenteService.createNewClientUser(utenteDto));
     }
+
+    @PostMapping("utenti/nuovoRider")
+    public ResponseEntity<Utente> createNewRiderUser(@RequestBody UtenteDto utenteDto) {
+        return ResponseEntity.ok(utenteService.createNewRiderUser(utenteDto));
+    }
+
+    @PostMapping("utenti/nuovoAdmin")
+    public ResponseEntity<Utente> createNewAdminUser(@RequestBody UtenteDto utenteDto) {
+        return ResponseEntity.ok(utenteService.createNewAdminUser(utenteDto));
+    }
+
 
 
 
