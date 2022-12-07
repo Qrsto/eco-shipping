@@ -36,24 +36,27 @@ public class UtenteService {
     }
 
 
-    //ottimizzare magari estendendo a qualsiasi tipoUtente (con degli if...)
-    public Utente createNewClientUser(Utente utenteDto) {
+    //ottimizzare magari estendendo a qualsiasi tipoUtente (con degli if...)scriver
+
+    //scrivere un metodo rpivate che fa quello di sotto
+    public Utente createNewClientUser(UtenteDto utenteDto) {
+
         Utente newUser = new Utente();
         newUser.setNome(utenteDto.getNome());
         newUser.setCognome(utenteDto.getCognome());
         newUser.setCap(utenteDto.getCap());
         newUser.setCitta(utenteDto.getCitta());
         newUser.setIndirizzoResidenza(utenteDto.getIndirizzoResidenza());
-        newUser.setDataNasc(utenteDto.getDataNasc());
+        newUser.setDataNasc(utenteDto.getDataNas());
         newUser.setNumTelefono(utenteDto.getNumTelefono());
-        newUser.setPassword(utenteDto.getPassword());
+        newUser.setPassword("0000000000000");
         newUser.setDisponibilitaLavoro(false);
         newUser.setIBAN(null);
         newUser.setTipoUtente(TipoUtente.CLIENTE);
         newUser.setLongitudineRider(0);
         newUser.setLatitudineRider(0);
+        return utenteRepository.save(newUser);
 
-        return newUser;
 
     }
 /*
