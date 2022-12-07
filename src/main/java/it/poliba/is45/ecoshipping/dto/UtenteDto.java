@@ -1,6 +1,7 @@
 package it.poliba.is45.ecoshipping.dto;
 
 
+import it.poliba.is45.ecoshipping.enumeratives.TipoUtente;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,10 @@ public class UtenteDto {
     private String cap;
     private String dataNas;
     private String numTelefono;
+    private String password;
+    private String iban;
+
+
 
 
 

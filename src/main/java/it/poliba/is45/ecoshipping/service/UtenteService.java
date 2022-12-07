@@ -40,7 +40,24 @@ public class UtenteService {
 
     //scrivere un metodo rpivate che fa quello di sotto
     public Utente createNewClientUser(UtenteDto utenteDto) {
+        Utente newUser = utilsForCreation(utenteDto);
+        newUser.setTipoUtente(TipoUtente.CLIENTE);
+        return utenteRepository.save(newUser);
+    }
 
+    public Utente createNewRiderUser(UtenteDto utenteDto) {
+        Utente newUser = utilsForCreation(utenteDto);
+        newUser.setTipoUtente(TipoUtente.RIDER);
+        return utenteRepository.save(newUser);
+    }
+
+    public Utente createNewAdmin(UtenteDto utenteDto) {
+        Utente newUser = utilsForCreation(utenteDto);
+        newUser.setTipoUtente(TipoUtente.ADMIN);
+        return utenteRepository.save(newUser);
+    }
+
+    private Utente utilsForCreation(UtenteDto utenteDto) {
         Utente newUser = new Utente();
         newUser.setNome(utenteDto.getNome());
         newUser.setCognome(utenteDto.getCognome());
@@ -49,16 +66,15 @@ public class UtenteService {
         newUser.setIndirizzoResidenza(utenteDto.getIndirizzoResidenza());
         newUser.setDataNasc(utenteDto.getDataNas());
         newUser.setNumTelefono(utenteDto.getNumTelefono());
-        newUser.setPassword("0000000000000");
+        newUser.setPassword(utenteDto.getPassword());
         newUser.setDisponibilitaLavoro(false);
-        newUser.setIBAN(null);
-        newUser.setTipoUtente(TipoUtente.CLIENTE);
+        newUser.setIBAN(utenteDto.getIban());
         newUser.setLongitudineRider(0);
         newUser.setLatitudineRider(0);
-        return utenteRepository.save(newUser);
-
-
+        return newUser;
     }
+
+
 /*
     public List<UtenteDto> findAllByNome(Utente utente) {
         //fare prima METODO DI INSERIMENTO
