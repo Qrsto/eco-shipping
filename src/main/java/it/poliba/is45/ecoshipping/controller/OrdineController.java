@@ -2,18 +2,23 @@ package it.poliba.is45.ecoshipping.controller;
 import java.util.concurrent.atomic.AtomicLong;
 
 import it.poliba.is45.ecoshipping.domain.Ordine;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import it.poliba.is45.ecoshipping.domain.Utente;
+import it.poliba.is45.ecoshipping.dto.OrdineDto;
+import it.poliba.is45.ecoshipping.dto.UtenteDto;
+import it.poliba.is45.ecoshipping.service.OrdineService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class OrdineController {
-<<<<<<< HEAD
-=======
 
+    @Autowired
+    OrdineService ordineService;
 
-
-    
->>>>>>> a2225e57927e74c10e6cc43975dc95b1a4f09f10
+    @PostMapping("/ordine/neworder")
+    public ResponseEntity<Ordine> createNewOrder(@RequestBody OrdineDto ordineDto) {
+        return ResponseEntity.ok(ordineService.createNewOrder(ordineDto));
+    }
 
 }

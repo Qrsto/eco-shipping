@@ -20,7 +20,7 @@ public class UtenteService {
     //vedi metodo creazioneUtenti
 
 
-    private UtenteDto toUtenteDto(Utente utente){
+    private UtenteDto toUtenteDto(Utente utente) {
         UtenteDto utenteDto = new UtenteDto();
         utenteDto.setIdUtente(utente.getIdUtente());
         utenteDto.setNome(utente.getNome());
@@ -36,7 +36,7 @@ public class UtenteService {
     public List<UtenteDto> findAllByTipoUtente(TipoUtente tipoUtente) {
         List<Utente> utenteList = utenteRepository.findAllByTipoUtente(tipoUtente);
         List<UtenteDto> utenteDtoList = new ArrayList<>();
-        for (Utente utente: utenteList) {
+        for (Utente utente : utenteList) {
             UtenteDto utenteDto = new UtenteDto();
             utenteDto.setIdUtente(utente.getIdUtente());
             utenteDto.setNome(utente.getNome());
@@ -65,45 +65,51 @@ public class UtenteService {
     Come si gestisce il metodo ???
 */
 
-    public Utente createNewClientUser(UtenteDto utenteDto) {
-        Utente newUser = utilsForCreation(utenteDto);
-        newUser.setTipoUtente(TipoUtente.CLIENTE);
-        return utenteRepository.save(newUser);
+    public Optional<UtenteDto> findUtenteById(int id) {
+        Optional<Utente> utente = utenteRepository.findById(id);
+        Optional<UtenteDto> utenteDto = Optional.of(new UtenteDto());
+        Utente utente1 = utente.get();
+        return utenteDto;
+
+    }
+
+        public Utente createNewClientUser (UtenteDto utenteDto){
+            Utente newUser = utilsForCreation(utenteDto);
+            newUser.setTipoUtente(TipoUtente.CLIENTE);
+            return utenteRepository.save(newUser);
 
         }
+        public Utente createNewRiderUser (UtenteDto utenteDto){
+            Utente newUser = utilsForCreation(utenteDto);
+            newUser.setTipoUtente(TipoUtente.RIDER);
+            return utenteRepository.save(newUser);
+        }
 
+        public Utente createNewAdminUser (UtenteDto utenteDto){
+            Utente newUser = utilsForCreation(utenteDto);
+            newUser.setTipoUtente(TipoUtente.ADMIN);
+            return utenteRepository.save(newUser);
+        }
 
-    public Utente createNewRiderUser(UtenteDto utenteDto) {
-        Utente newUser = utilsForCreation(utenteDto);
-        newUser.setTipoUtente(TipoUtente.RIDER);
-        return utenteRepository.save(newUser);
-    }
+        private Utente utilsForCreation (UtenteDto utenteDto){
+            Utente newUser = new Utente();
+            newUser.setNome(utenteDto.getNome());
+            newUser.setCognome(utenteDto.getCognome());
+            newUser.setCap(utenteDto.getCap());
+            newUser.setCitta(utenteDto.getCitta());
+            newUser.setIndirizzoResidenza(utenteDto.getIndirizzoResidenza());
+            newUser.setDataNasc(utenteDto.getDataNas());
+            newUser.setNumTelefono(utenteDto.getNumTelefono());
+            newUser.setPassword(utenteDto.getPassword());
+            newUser.setDisponibilitaLavoro(false);
+            newUser.setIBAN(utenteDto.getIban());
+            newUser.setLongitudineRider(0);
+            newUser.setLatitudineRider(0);
 
-    public Utente createNewAdminUser(UtenteDto utenteDto) {
-        Utente newUser = utilsForCreation(utenteDto);
-        newUser.setTipoUtente(TipoUtente.ADMIN);
-        return utenteRepository.save(newUser);
-    }
+            return newUser;
+        }
 
-    private Utente utilsForCreation(UtenteDto utenteDto) {
-        Utente newUser = new Utente();
-        newUser.setNome(utenteDto.getNome());
-        newUser.setCognome(utenteDto.getCognome());
-        newUser.setCap(utenteDto.getCap());
-        newUser.setCitta(utenteDto.getCitta());
-        newUser.setIndirizzoResidenza(utenteDto.getIndirizzoResidenza());
-        newUser.setDataNasc(utenteDto.getDataNas());
-        newUser.setNumTelefono(utenteDto.getNumTelefono());
-        newUser.setPassword(utenteDto.getPassword());
-        newUser.setDisponibilitaLavoro(false);
-        newUser.setIBAN(utenteDto.getIban());
-        newUser.setLongitudineRider(0);
-        newUser.setLatitudineRider(0);
-
-        return newUser;
-    }
-
-    /*
+       /*
     public String deleteAllUser() {
         utenteRepository.deleteAll();
         return "DB vuoto";
@@ -111,14 +117,8 @@ public class UtenteService {
      */
 
 
-
-
-
-
-
-
-
-
-
     }
+
+
+
 
