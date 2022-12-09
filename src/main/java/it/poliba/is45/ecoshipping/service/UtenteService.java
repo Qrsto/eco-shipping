@@ -51,7 +51,7 @@ public class UtenteService {
         return utenteRepository.save(newUser);
     }
 
-    public Utente createNewAdmin(UtenteDto utenteDto) {
+    public Utente createNewAdminUser(UtenteDto utenteDto) {
         Utente newUser = utilsForCreation(utenteDto);
         newUser.setTipoUtente(TipoUtente.ADMIN);
         return utenteRepository.save(newUser);
@@ -73,6 +73,7 @@ public class UtenteService {
         newUser.setLatitudineRider(0);
         return newUser;
     }
+
 
 
 /*
