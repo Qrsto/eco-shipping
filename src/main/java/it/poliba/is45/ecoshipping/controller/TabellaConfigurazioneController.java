@@ -30,8 +30,9 @@ public class TabellaConfigurazioneController {
   }
         
         
-/*prezzo finale = 2(COSTOFISSO) + (peso_pacco/100)*costo_100g + (nKm*costoKm)
-prezzo finale = 2 + (1000/100)*0.25 + (1*0.5)
+/*FORMULA: prezzo finale = 2(COSTOFISSO) + (peso_pacco/100)*costo_100g + (nKm*costoKm)/
+
+/* ESEMPIO: prezzo finale = 2€ + (1000/100)*0.25€ + (1*0.5€) = 5€
 nKm = 1
 peso = 1 kg
 costo_100g = 0.25€
