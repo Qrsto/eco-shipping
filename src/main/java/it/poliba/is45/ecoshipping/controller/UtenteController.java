@@ -18,22 +18,28 @@ public class UtenteController {
     @Autowired
     UtenteService utenteService;
 
-    @GetMapping ("/utenti/clienti")
+    @GetMapping ("/utente/clienti")
     public ResponseEntity<List<UtenteDto>> getAllClientUsers () {
        List<UtenteDto> utenteDtoList = utenteService.findAllByTipoUtente(TipoUtente.CLIENTE);
        return ResponseEntity.ok(utenteDtoList);
     }
 
-    @GetMapping ("/utenti/riders")
+    @GetMapping ("/utente/riders")
     public ResponseEntity<List<UtenteDto>> getAllRiderUsers () {
         List<UtenteDto> utenteDtoList = utenteService.findAllByTipoUtente(TipoUtente.RIDER);
         return ResponseEntity.ok(utenteDtoList);
     }
 
-    @GetMapping ("/utenti/admin")
+    @GetMapping ("/utente/admin")
     public ResponseEntity<List<UtenteDto>> getAllAdminUsers () {
         List<UtenteDto> utenteDtoList = utenteService.findAllByTipoUtente(TipoUtente.ADMIN);
         return ResponseEntity.ok(utenteDtoList);
+    }
+
+    @GetMapping("/utente/{id_utente}")
+    public ResponseEntity<Optional<UtenteDto>> getUserById(@PathVariable long id) {
+        Optional<UtenteDto> utenteDto = utenteService.findUtenteById(id);
+        return ResponseEntity.ok(utenteDto);
     }
 
 
@@ -51,6 +57,8 @@ public class UtenteController {
     public ResponseEntity<Utente> createNewAdminUser(@RequestBody UtenteDto utenteDto) {
         return ResponseEntity.ok(utenteService.createNewAdminUser(utenteDto));
     }
+
+
 
     //come gestire le operazioni admin???
     /*
