@@ -7,7 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/ordine")
 public class OrdineController {
+<<<<<<< HEAD
+=======
+
+
+
+    
+>>>>>>> a2225e57927e74c10e6cc43975dc95b1a4f09f10
 
 }

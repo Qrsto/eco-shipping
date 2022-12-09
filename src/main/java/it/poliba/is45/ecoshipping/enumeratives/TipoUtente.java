@@ -1,4 +1,4 @@
-package it.poliba.is45.ecoshipping.Enum;
+package it.poliba.is45.ecoshipping.enumeratives;
 
 public enum TipoUtente {
     RIDER,
