@@ -71,8 +71,6 @@ public class UtenteService {
         Utente utente1 = utente.get();
         return utenteDto;
 
-        return utenteDto;
-
     }
 
         public Utente createNewClientUser (UtenteDto utenteDto){
