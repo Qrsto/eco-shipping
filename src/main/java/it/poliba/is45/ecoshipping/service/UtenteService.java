@@ -9,11 +9,26 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UtenteService {
     @Autowired
     UtenteRepository utenteRepository;
+
+    //per la psw come gestirla (in un metodo) inserire il campo in UtenteDto ???
+    //vedi metodo creazioneUtenti
+    private UtenteDto toUtenteDto(Utente utente){
+        UtenteDto utenteDto = new UtenteDto();
+        utenteDto.setIdUtente(utente.getIdUtente());
+        utenteDto.setNome(utente.getNome());
+        utenteDto.setCognome(utente.getCognome());
+        utenteDto.setIndirizzoResidenza(utente.getIndirizzoResidenza());
+        utenteDto.setCitta(utenteDto.getCitta());
+        utenteDto.setCap(utente.getCap());
+        utenteDto.setNumTelefono(utente.getNumTelefono());
+        return utenteDto;
+    }
 
     //restituisce una lista di utentiDTO (vedi UtenteDto) che hanno lo specifico tipoUtente passato al metodo
     public List<UtenteDto> findAllByTipoUtente(TipoUtente tipoUtente) {
@@ -35,15 +50,26 @@ public class UtenteService {
 
     }
 
+    /*
+    public UtenteDto findUtenteById(long id) {
+        Utente utente = utenteRepository.findUtenteById(id);
+        UtenteDto utenteDto = new UtenteDto();
+        for (Utente utente : utenteList) {
 
-    //ottimizzare magari estendendo a qualsiasi tipoUtente (con degli if...)scriver
+        }
 
-    //scrivere un metodo rpivate che fa quello di sotto
+
+    }
+    Come si gestisce il metodo ???
+*/
+
     public Utente createNewClientUser(UtenteDto utenteDto) {
         Utente newUser = utilsForCreation(utenteDto);
         newUser.setTipoUtente(TipoUtente.CLIENTE);
         return utenteRepository.save(newUser);
-    }
+
+        }
+
 
     public Utente createNewRiderUser(UtenteDto utenteDto) {
         Utente newUser = utilsForCreation(utenteDto);
@@ -76,14 +102,8 @@ public class UtenteService {
 
 
 
-/*
-    public List<UtenteDto> findAllByNome(Utente utente) {
-        //fare prima METODO DI INSERIMENTO
-        List<Utente> utenteList = utenteRepository.findAllByNome(utente);
-        List<Utente> utenteListCopy = new ArrayList<>();
-        return utenteList;
-    }
-*/
+
+
 
 
 

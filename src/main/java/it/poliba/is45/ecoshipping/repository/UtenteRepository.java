@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 
 //applicarlo a tutte le entity
@@ -14,7 +15,7 @@ import java.util.List;
 public interface UtenteRepository extends JpaRepository<Utente,Long> {
 
     public List<Utente> findAllByTipoUtente(TipoUtente tipoUtente);
-
+    public Optional<Utente> findUtenteById (long id);
 
 
 

@@ -17,10 +17,11 @@ public class UtenteDto {
     private long idUtente;
     private String nome;
     private String cognome;
+    private String dataNas;
     private String indirizzoResidenza;  //applicarlo a tutte lentita
     private String citta;
     private String cap;
-    private String dataNas;
+
     private String numTelefono;
     private String password;
     private String iban;
