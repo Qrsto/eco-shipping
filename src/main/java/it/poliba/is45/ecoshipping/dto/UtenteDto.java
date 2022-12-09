@@ -14,7 +14,7 @@ import lombok.Setter;
 
 
 public class UtenteDto {
-    private long idUtente;
+    private int idUtente;
     private String nome;
     private String cognome;
     private String dataNas;

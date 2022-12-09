@@ -65,7 +65,7 @@ public class UtenteService {
     Come si gestisce il metodo ???
 */
 
-    public Optional<UtenteDto> findUtenteById(long id) {
+    public Optional<UtenteDto> findUtenteById(int id) {
         Optional<Utente> utente = utenteRepository.findById(id);
         Optional<UtenteDto> utenteDto = Optional.of(new UtenteDto());
         Utente utente1 = utente.get();

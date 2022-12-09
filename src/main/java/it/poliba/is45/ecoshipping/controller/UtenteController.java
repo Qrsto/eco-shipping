@@ -36,8 +36,8 @@ public class UtenteController {
         return ResponseEntity.ok(utenteDtoList);
     }
 
-    @GetMapping("/utente/{id_utente}")
-    public ResponseEntity<Optional<UtenteDto>> getUserById(@PathVariable long id) {
+    @GetMapping("/utente/{idUtente}")
+    public ResponseEntity<Optional<UtenteDto>> getUserById(@PathVariable int id) {
         Optional<UtenteDto> utenteDto = utenteService.findUtenteById(id);
         return ResponseEntity.ok(utenteDto);
     }
