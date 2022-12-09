@@ -15,7 +15,7 @@ import java.util.Optional;
 public interface UtenteRepository extends JpaRepository<Utente,Long> {
 
     public List<Utente> findAllByTipoUtente(TipoUtente tipoUtente);
-    public Optional<Utente> findUtenteById (long id);
+   //public Optional<Utente> findUtenteById (long id);
 
 
 

@@ -19,25 +19,48 @@ public class UtenteController {
     UtenteService utenteService;
 
     @GetMapping ("/utenti/clienti")
-    public ResponseEntity<List<UtenteDto>> getAllUsers () {
+    public ResponseEntity<List<UtenteDto>> getAllClientUsers () {
        List<UtenteDto> utenteDtoList = utenteService.findAllByTipoUtente(TipoUtente.CLIENTE);
        return ResponseEntity.ok(utenteDtoList);
     }
 
-    @PostMapping("/utenti/nuovoCliente")
+    @GetMapping ("/utenti/riders")
+    public ResponseEntity<List<UtenteDto>> getAllRiderUsers () {
+        List<UtenteDto> utenteDtoList = utenteService.findAllByTipoUtente(TipoUtente.RIDER);
+        return ResponseEntity.ok(utenteDtoList);
+    }
+
+    @GetMapping ("/utenti/admin")
+    public ResponseEntity<List<UtenteDto>> getAllAdminUsers () {
+        List<UtenteDto> utenteDtoList = utenteService.findAllByTipoUtente(TipoUtente.ADMIN);
+        return ResponseEntity.ok(utenteDtoList);
+    }
+
+
+    @PostMapping("/utente/nuovocliente")
     public ResponseEntity<Utente> createNewClientUser(@RequestBody UtenteDto utenteDto) {
        return ResponseEntity.ok(utenteService.createNewClientUser(utenteDto));
     }
 
-    @PostMapping("/utenti/nuovoRider")
+    @PostMapping("/utente/nuovorider")
     public ResponseEntity<Utente> createNewRiderUser(@RequestBody UtenteDto utenteDto) {
         return ResponseEntity.ok(utenteService.createNewRiderUser(utenteDto));
     }
 
-    @PostMapping("/utenti/nuovoAdmin")
+    @PostMapping("/utente/nuovoadmin")
     public ResponseEntity<Utente> createNewAdminUser(@RequestBody UtenteDto utenteDto) {
         return ResponseEntity.ok(utenteService.createNewAdminUser(utenteDto));
     }
+
+    //come gestire le operazioni admin???
+    /*
+    @DeleteMapping("/gestione")
+    public ResponseEntity<String> deleteAllUser() {
+        return ResponseEntity.ok(utenteService.deleteAllUser());
+    }
+     */
+
+
 
     /*
     @PostMapping("/utenti/{id_utente}")

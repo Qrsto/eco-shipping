@@ -18,6 +18,8 @@ public class UtenteService {
 
     //per la psw come gestirla (in un metodo) inserire il campo in UtenteDto ???
     //vedi metodo creazioneUtenti
+
+
     private UtenteDto toUtenteDto(Utente utente){
         UtenteDto utenteDto = new UtenteDto();
         utenteDto.setIdUtente(utente.getIdUtente());
@@ -97,8 +99,19 @@ public class UtenteService {
         newUser.setIBAN(utenteDto.getIban());
         newUser.setLongitudineRider(0);
         newUser.setLatitudineRider(0);
+
         return newUser;
     }
+
+    /*
+    public String deleteAllUser() {
+        utenteRepository.deleteAll();
+        return "DB vuoto";
+    }
+     */
+
+
+
 
 
 
