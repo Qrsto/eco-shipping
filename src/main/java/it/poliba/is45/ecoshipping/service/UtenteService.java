@@ -29,8 +29,6 @@ public class UtenteService {
         utenteDto.setCitta(utenteDto.getCitta());
         utenteDto.setCap(utente.getCap());
         utenteDto.setNumTelefono(utente.getNumTelefono());
-        utenteDto.setPassword(utente.getPassword());
-        utenteDto.setIban(utente.getIBAN());
         return utenteDto;
     }
 
@@ -69,9 +67,11 @@ public class UtenteService {
 
 
     public Optional<UtenteDto> findUtenteById(long id) {
-        Utente utente = utenteRepository.findById(id).get();
-        UtenteDto utenteDto = toUtenteDto(utente);
-        return Optional.of(utenteDto);
+        Optional<Utente> utente = utenteRepository.findById(id);
+        Optional<UtenteDto> utenteDto = Optional.of(new UtenteDto());
+        Utente utente1 = utente.get();
+
+
 
     }
 
