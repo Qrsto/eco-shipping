@@ -12,7 +12,8 @@ import lombok.Setter;
 
 
 public class TabellaConfigurazioneDto {
-    private String conf_key;
-    private String conf_value;
+    private String confKey;
+    private String confValue;
+
 
 }
