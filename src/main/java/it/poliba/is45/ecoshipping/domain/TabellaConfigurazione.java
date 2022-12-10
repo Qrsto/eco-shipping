@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+
 import javax.persistence.*;
 
 
@@ -14,9 +16,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "tabella_di_configurazione")
 public class TabellaConfigurazione {
-    
     @Id
     @Column(name = "conf_key")
     private String confKey;

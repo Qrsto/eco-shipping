@@ -15,10 +15,9 @@ public class TabellaConfigurazioneService {
     @Autowired
     TabellaConfigurazioneRepository tabellaConfigurazioneRepository;
 
-<<<<<<< HEAD
     //si potrebbe creare un package Utils con i vari metodi (sotto)
     public List<TabellaConfigurazioneDto> getTabellaConfigurazione(){
-        List<TabellaConfigurazione> tabellaConfigurazioneList =  tabellaConfigurazioneRepository.getTabellaConfigurazione();
+        List<TabellaConfigurazione> tabellaConfigurazioneList =  tabellaConfigurazioneRepository.findAll();
         List<TabellaConfigurazioneDto> tabellaConfigurazioneDtoList = new ArrayList<>();
         for (TabellaConfigurazione tab : tabellaConfigurazioneList ) {
             TabellaConfigurazioneDto tabellaConfigurazioneDto = new TabellaConfigurazioneDto();
@@ -29,17 +28,5 @@ public class TabellaConfigurazioneService {
         return tabellaConfigurazioneDtoList;
     }
 
-
-}
-=======
-    private TabellaConfigurazioneDto utilsForCreation (TabellaConfigurazione tabellaConfigurazione) {
->>>>>>> 44b3f4a997668d66dd9d65a73fcc9686df83a07d
-
-        TabellaConfigurazioneDto tabellaConfigurazioneDto = new TabellaConfigurazioneDto();
-        tabellaConfigurazioneDto.setConf_key(tabellaConfigurazione.getConfKey());
-        tabellaConfigurazioneDto.setConf_value(tabellaConfigurazione.getConfValue());
-        return tabellaConfigurazioneDto;
-
-    }
 
 }
