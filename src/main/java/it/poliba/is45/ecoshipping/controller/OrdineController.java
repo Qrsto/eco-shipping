@@ -1,4 +1,5 @@
 package it.poliba.is45.ecoshipping.controller;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 import it.poliba.is45.ecoshipping.domain.Ordine;
@@ -23,9 +24,6 @@ public class OrdineController {
     @Autowired
     private OrdineRepository ordineRepository;
 
-<<<<<<< HEAD
-
-=======
     @PostMapping("/ordine/neworder")
     public ResponseEntity<Ordine> createNewOrder(@RequestBody OrdineDto ordineDto) {
         return ResponseEntity.ok(ordineService.createNewOrder(ordineDto));
@@ -40,5 +38,11 @@ public class OrdineController {
         return ResponseEntity.ok(updatedOrdine);
     }
 */
->>>>>>> 6ca283a43e0145288efa590c488aced7fe02aec5
+
+    @GetMapping("/ordini")
+    List<Ordine> all() {
+        return OrdineRepository.findAll();
+}
+
+
 }
