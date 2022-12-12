@@ -12,7 +12,7 @@ import java.util.Optional;
 
 //applicarlo a tutte le entity
 @Repository
-public interface UtenteRepository extends JpaRepository<Utente,Long> {
+public interface UtenteRepository extends JpaRepository<Utente,Integer> {
 
     public List<Utente> findAllByTipoUtente(TipoUtente tipoUtente);
    //public Optional<Utente> findUtenteById (long id);

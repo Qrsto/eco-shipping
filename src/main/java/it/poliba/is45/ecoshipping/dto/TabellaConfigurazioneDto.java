@@ -1,26 +1,18 @@
-package it.poliba.is45.ecoshipping.domain;
+package it.poliba.is45.ecoshipping.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
-import javax.persistence.*;
-
-
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 
 
-@Entity
-public class TabellaConfigurazione {
-    @Id
-    @Column(name = "conf_key")
+public class TabellaConfigurazioneDto {
     private String confKey;
-    @Column(name = "conf_value")
     private String confValue;
 
 

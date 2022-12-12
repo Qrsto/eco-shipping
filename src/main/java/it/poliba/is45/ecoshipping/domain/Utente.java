@@ -21,7 +21,7 @@ public class Utente {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     @Column(name = "id_utente")
-    private long idUtente;
+    private int idUtente;
     private String nome;
     private String cognome;
     @Column(name = "indirizzo_residenza")
