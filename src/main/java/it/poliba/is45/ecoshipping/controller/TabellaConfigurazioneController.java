@@ -33,10 +33,12 @@ public class TabellaConfigurazioneController {
     TabellaConfigurazioneDto() n = new TabellaConfigurazioneDto();
     n.getConf_key(); Etichetta Esempio Costo_100_grammi
     n.getConf_value(); Valore Esempio 0.25€ nel caso di Costo_100_grammi
+        
+        Aggiungi Costo_Finale
     
     return 2 + ((peso_pacco_in_grammi/100)*n.getConf_value()) + (km*n.getConf_value());
     */
-    /*DOMANDA: Come faccio a ricavare che Conf_value sia uguale a 0.25 nel caso di peso in grammi?*/
+    /*DOMANDA: Come ricavo che Conf_value sia uguale a 0.25 nel caso di peso in grammi?*/
   }
 
 /*
@@ -46,7 +48,7 @@ public class TabellaConfigurazioneController {
         n.getConf_key(); Etichetta Esempio Costo_100_grammi
         n.getConf_value(); /*Valore Esempio 0.25€ nel caso di Costo_100_grammi*
 
-        /*DOMANDA: Come faccio a ricavare che Conf_value sia uguale a 0.25 nel caso di peso in grammi?*/
+        /*DOMANDA: Come ricavo che Conf_value sia uguale a 0.25 nel caso di peso in grammi?*/
 
 
 

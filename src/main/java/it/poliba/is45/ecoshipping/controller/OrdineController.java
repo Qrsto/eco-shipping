@@ -37,12 +37,12 @@ public class OrdineController {
         final Ordine updatedOrdine = ordineRepository.save(ordine);
         return ResponseEntity.ok(updatedOrdine);
     }
-*/
+
 
     @GetMapping("/ordini")
     List<Ordine> all() {
         return OrdineRepository.findAll();
-}
-
+    }
+*/
 
 }
