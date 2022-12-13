@@ -65,53 +65,51 @@ public class UtenteService {
     Come si gestisce il metodo ???
 */
 
-    public UtenteDto findUtenteById(int id) {
+    public UtenteDto findUtenteById (int id)  {
         Optional<Utente> utente = utenteRepository.findById(id);
         if (utente.isPresent()) {
-            UtenteDto utenteDto = toUtenteDto(utente);
-        
-        return utenteDto; 
-        } else 
-        throw new RuntimeException("Utente non trovato: " + id));
-    
-
+            UtenteDto utenteDto = toUtenteDto(utente.get());
+            return utenteDto;
+        }
+        else
+            throw new IllegalStateException("Ochhio");
+           // throw new RuntimeException("Utente non trovato: " + id);
     }
 
-        public Utente createNewClientUser (UtenteDto utenteDto){
-            Utente newUser = utilsForCreation(utenteDto);
-            newUser.setTipoUtente(TipoUtente.CLIENTE);
-            return utenteRepository.save(newUser);
 
-        }
-        public Utente createNewRiderUser (UtenteDto utenteDto){
-            Utente newUser = utilsForCreation(utenteDto);
-            newUser.setTipoUtente(TipoUtente.RIDER);
-            return utenteRepository.save(newUser);
-        }
+    public Utente createNewClientUser (UtenteDto utenteDto) {
+        Utente newUser = utilsForCreation(utenteDto);
+        newUser.setTipoUtente(TipoUtente.CLIENTE);
+        return utenteRepository.save(newUser);
+    }
+    public Utente createNewRiderUser (UtenteDto utenteDto) {
+        Utente newUser = utilsForCreation(utenteDto);
+        newUser.setTipoUtente(TipoUtente.RIDER);
+        return utenteRepository.save(newUser);
+    }
 
-        public Utente createNewAdminUser (UtenteDto utenteDto){
-            Utente newUser = utilsForCreation(utenteDto);
-            newUser.setTipoUtente(TipoUtente.ADMIN);
-            return utenteRepository.save(newUser);
-        }
+    public Utente createNewAdminUser (UtenteDto utenteDto) {
+        Utente newUser = utilsForCreation(utenteDto);
+        newUser.setTipoUtente(TipoUtente.ADMIN);
+        return utenteRepository.save(newUser);
+    }
 
-        private Utente utilsForCreation (UtenteDto utenteDto){
-            Utente newUser = new Utente();
-            newUser.setNome(utenteDto.getNome());
-            newUser.setCognome(utenteDto.getCognome());
-            newUser.setCap(utenteDto.getCap());
-            newUser.setCitta(utenteDto.getCitta());
-            newUser.setIndirizzoResidenza(utenteDto.getIndirizzoResidenza());
-            newUser.setDataNasc(utenteDto.getDataNas());
-            newUser.setNumTelefono(utenteDto.getNumTelefono());
-            newUser.setPassword(utenteDto.getPassword());
-            newUser.setDisponibilitaLavoro(false);
-            newUser.setIBAN(utenteDto.getIban());
-            newUser.setLongitudineRider(0);
-            newUser.setLatitudineRider(0);
-
-            return newUser;
-        }
+    private Utente utilsForCreation (UtenteDto utenteDto){
+        Utente newUser = new Utente();
+        newUser.setNome(utenteDto.getNome());
+        newUser.setCognome(utenteDto.getCognome());
+        newUser.setCap(utenteDto.getCap());
+        newUser.setCitta(utenteDto.getCitta());
+        newUser.setIndirizzoResidenza(utenteDto.getIndirizzoResidenza());
+        newUser.setDataNasc(utenteDto.getDataNas());
+        newUser.setNumTelefono(utenteDto.getNumTelefono());
+        newUser.setPassword(utenteDto.getPassword());
+        newUser.setDisponibilitaLavoro(false);
+        newUser.setIBAN(utenteDto.getIban());
+        newUser.setLongitudineRider(0);
+        newUser.setLatitudineRider(0);
+        return newUser;
+    }
 
        /*
     public String deleteAllUser() {

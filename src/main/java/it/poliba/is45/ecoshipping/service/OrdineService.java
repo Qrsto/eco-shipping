@@ -5,14 +5,17 @@ import it.poliba.is45.ecoshipping.domain.TabellaConfigurazione;
 import it.poliba.is45.ecoshipping.dto.OrdineDto;
 
 
+import it.poliba.is45.ecoshipping.dto.UtenteDto;
 import it.poliba.is45.ecoshipping.enumeratives.FasciaOraria;
 import it.poliba.is45.ecoshipping.enumeratives.MetodoPagamento;
 import it.poliba.is45.ecoshipping.repository.OrdineRepository;
 
 import it.poliba.is45.ecoshipping.repository.TabellaConfigurazioneRepository;
+import org.apache.el.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -24,6 +27,7 @@ public class OrdineService {
     OrdineRepository ordineRepository;
     @Autowired
     private TabellaConfigurazioneRepository tabellaConfigurazioneRepository;
+
 
     private Ordine utilsForCreation (OrdineDto ordineDto){
         Ordine newOrdine = new Ordine();
@@ -41,10 +45,37 @@ public class OrdineService {
         return newOrdine;
     }
 
+
+
     public Ordine createNewOrder (OrdineDto ordineDto){
         Ordine newOrdine = utilsForCreation(ordineDto);
         return ordineRepository.save(newOrdine);
 
+    }
+
+    public List<OrdineDto> findAllOrders() {
+        List<Ordine> ordineList = ordineRepository.findAll();
+        List<OrdineDto> ordineDtoList = new ArrayList<>();
+        for (Ordine ordine : ordineList) {
+            OrdineDto ordineDto = toOrdineDto(ordine);
+            ordineDtoList.add(ordineDto);
+        }
+        return ordineDtoList;
+    }
+
+    private OrdineDto toOrdineDto(Ordine ordine) {
+        OrdineDto ordineDto = new OrdineDto();
+        ordineDto.setIdOrdine(ordine.getIdOrdine());
+        ordineDto.setIndirizzoPartenza(ordine.getIndirizzoPartenza());
+        ordineDto.setIndirizzoConsegna(ordine.getIndirizzoConsegna());
+        ordineDto.setPesoSpedizione(ordine.getPesoSpedizione());
+        ordineDto.setVolumeSpedizione(ordine.getVolumeSpedizione());
+        ordineDto.setNumTelefonoDestinatario(ordine.getNumTelefonoDestinatario());
+        ordineDto.setMetodoPagamento(ordine.getMetodoPagamento());
+        ordineDto.setFasciaOraria(ordine.getFasciaOraria());
+        ordineDto.setNoteConsegna(ordine.getNoteConsegna());
+        ordineDto.setCostoFinale(ordine.getCostoFinale());
+        return ordineDto;
     }
 
     private HashMap<String,Float> toHashMapFloat () {

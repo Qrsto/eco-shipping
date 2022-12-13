@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @RestController
 public class UtenteController {
@@ -37,9 +37,14 @@ public class UtenteController {
     }
 
     @GetMapping("/utente/{idUtente}")
-    public ResponseEntity<Optional<UtenteDto>> getUserById(@PathVariable int id) {
-        Optional<UtenteDto> utenteDto = utenteService.findUtenteById(id);
-        return ResponseEntity.ok(utenteDto);
+    public ResponseEntity<UtenteDto> getUserById (@PathVariable int id) {
+        try{
+            UtenteDto utenteDto = utenteService.findUtenteById(id);
+            return ResponseEntity.ok(utenteDto);
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 

@@ -3,14 +3,11 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 import it.poliba.is45.ecoshipping.domain.Ordine;
-import it.poliba.is45.ecoshipping.domain.Utente;
+
 import it.poliba.is45.ecoshipping.dto.OrdineDto;
-import it.poliba.is45.ecoshipping.dto.UtenteDto;
-import it.poliba.is45.ecoshipping.repository.OrdineRepository;
-import it.poliba.is45.ecoshipping.repository.UtenteRepository;
+
 import it.poliba.is45.ecoshipping.service.OrdineService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,10 +16,6 @@ public class OrdineController {
 
     @Autowired
     OrdineService ordineService;
-    @Autowired
-    private UtenteRepository utenteRepository;
-    @Autowired
-    private OrdineRepository ordineRepository;
 
     @PostMapping("/ordine/neworder")
     public ResponseEntity<Ordine> createNewOrder(@RequestBody OrdineDto ordineDto) {
@@ -38,11 +31,12 @@ public class OrdineController {
         return ResponseEntity.ok(updatedOrdine);
     }
 
-
-    @GetMapping("/ordini")
-    List<Ordine> all() {
-        return OrdineRepository.findAll();
-    }
 */
+    @GetMapping("/ordine/ordini")
+    ResponseEntity<List<OrdineDto>> getAllOrders () {
+        List<OrdineDto> ordineDtoList = ordineService.findAllOrders();
+        return ResponseEntity.ok(ordineDtoList);
+    }
+
 
 }
