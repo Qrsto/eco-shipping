@@ -36,16 +36,19 @@ public class UtenteController {
         return ResponseEntity.ok(utenteDtoList);
     }
 
-    @GetMapping("/utente/{idUtente}")
+    @GetMapping("/utente/{id}")
     public ResponseEntity<UtenteDto> getUserById (@PathVariable int id) {
         try{
             UtenteDto utenteDto = utenteService.findUtenteById(id);
             return ResponseEntity.ok(utenteDto);
-        } catch (IllegalStateException e) {
-            e.printStackTrace();
+        } catch (RuntimeException exception) {
+            exception.printStackTrace();
+            return null;
         }
-        return null;
+
     }
+
+    //@RequestParam is for the GET query parameters (i.e. /person?name="Bob").
 
 
     @PostMapping("/utente/nuovocliente")
@@ -75,13 +78,8 @@ public class UtenteController {
 
 
 
-    /*
-    @PostMapping("/utenti/{id_utente}")
-    public Optional<UtenteDto> findUtenteById(@PathVariable long id) {
-        return utenteService.findUtenteById(id);
-    }
 
-*/
+
 
 
 

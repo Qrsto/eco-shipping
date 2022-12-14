@@ -29,6 +29,8 @@ public class UtenteService {
         utenteDto.setCitta(utenteDto.getCitta());
         utenteDto.setCap(utente.getCap());
         utenteDto.setNumTelefono(utente.getNumTelefono());
+        utenteDto.setPassword(utente.getPassword());
+        utenteDto.setIban(utente.getIBAN());
         return utenteDto;
     }
 
@@ -72,8 +74,8 @@ public class UtenteService {
             return utenteDto;
         }
         else
-            throw new IllegalStateException("Ochhio");
-           // throw new RuntimeException("Utente non trovato: " + id);
+            throw new RuntimeException("Nessun utente trovato con id:  " + id);
+
     }
 
 
