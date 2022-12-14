@@ -48,7 +48,6 @@ public class UtenteController {
 
     }
 
-    //@RequestParam is for the GET query parameters (i.e. /person?name="Bob").
 
 
     @PostMapping("/utente/nuovocliente")
