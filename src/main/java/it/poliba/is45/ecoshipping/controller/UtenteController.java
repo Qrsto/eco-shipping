@@ -18,6 +18,12 @@ public class UtenteController {
     @Autowired
     UtenteService utenteService;
 
+    //Homepage di EcoSHIPPING
+    @GetMapping("/")
+    public String homepage() {
+        return "Benvenuti nella homepage di ecoshipping";
+    }
+
     @GetMapping ("/utente/clienti")
     public ResponseEntity<List<UtenteDto>> getAllClientUsers () {
        List<UtenteDto> utenteDtoList = utenteService.findAllByTipoUtente(TipoUtente.CLIENTE);
