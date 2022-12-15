@@ -96,6 +96,7 @@ public class OrdineService {
                                 *hashMapTab.get("costo_100_grammi") + numeroKm*hashMapTab.get("costo_km"));
         return prezzoFinale;
     }
+
 /*
     public float calculatePrezzoFinale(Ordine ordine) {
         return ordineRepository.updateCostoFinaleBy(calculatePrezzoFinaleUtils(ordine));

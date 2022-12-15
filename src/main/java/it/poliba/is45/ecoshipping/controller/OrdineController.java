@@ -17,10 +17,18 @@ public class OrdineController {
     @Autowired
     OrdineService ordineService;
 
+    @GetMapping("/ordine/ordini")
+    ResponseEntity<List<OrdineDto>> getAllOrders () {
+        List<OrdineDto> ordineDtoList = ordineService.findAllOrders();
+        return ResponseEntity.ok(ordineDtoList);
+    }
+
     @PostMapping("/ordine/neworder")
     public ResponseEntity<Ordine> createNewOrder(@RequestBody OrdineDto ordineDto) {
         return ResponseEntity.ok(ordineService.createNewOrder(ordineDto));
     }
+
+
 /*
     @PutMapping("/ordine/costofinale")
     public ResponseEntity<Ordine> updateCostoFinale(@PathVariable(value = "id_ordine") int id, @RequestBody float prezzoFinale) {
@@ -32,11 +40,7 @@ public class OrdineController {
     }
 
 */
-    @GetMapping("/ordine/ordini")
-    ResponseEntity<List<OrdineDto>> getAllOrders () {
-        List<OrdineDto> ordineDtoList = ordineService.findAllOrders();
-        return ResponseEntity.ok(ordineDtoList);
-    }
+
 
 
 }
