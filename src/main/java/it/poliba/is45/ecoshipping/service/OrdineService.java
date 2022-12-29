@@ -5,13 +5,13 @@ import it.poliba.is45.ecoshipping.domain.TabellaConfigurazione;
 import it.poliba.is45.ecoshipping.dto.OrdineDto;
 
 
-import it.poliba.is45.ecoshipping.dto.UtenteDto;
+
 import it.poliba.is45.ecoshipping.enumeratives.FasciaOraria;
 import it.poliba.is45.ecoshipping.enumeratives.MetodoPagamento;
 import it.poliba.is45.ecoshipping.repository.OrdineRepository;
 
 import it.poliba.is45.ecoshipping.repository.TabellaConfigurazioneRepository;
-import org.apache.el.stream.Stream;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +41,6 @@ public class OrdineService {
         newOrdine.setNumTelefonoDestinatario(ordineDto.getNumTelefonoDestinatario());
         newOrdine.setMetodoPagamento(MetodoPagamento.CONTANTI);
         newOrdine.setCostoFinale(0.0F);
-        newOrdine.setIdUtente(37);
         return newOrdine;
     }
 
@@ -88,7 +87,6 @@ public class OrdineService {
     }
 
 
-
     private float calculatePrezzoFinaleUtils(OrdineDto ordine){
         HashMap<String, Float> hashMapTab = toHashMapFloat();
         float numeroKm = 3F;   //da fare forumla (dalla latitudine/longitudine di partenza e arrivo si fa la diff e si calcola il numero km)
@@ -97,6 +95,10 @@ public class OrdineService {
         return prezzoFinale;
     }
 
+
+
+
+
 /*
     public float calculatePrezzoFinale(Ordine ordine) {
         return ordineRepository.updateCostoFinaleBy(calculatePrezzoFinaleUtils(ordine));
@@ -104,4 +106,4 @@ public class OrdineService {
 */
 }
 
-//FORMULA: prezzo finale = 2(COSTOFISSO) + (peso_pacco/100)*costo_100g + (nKm*costoKm)
+//FORMULA: prezzo finale = 2(COSTOFISSO) + (peso_pacco/100)*costo_100g + (nmK*costoKm)

@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -43,6 +44,16 @@ public class Utente {
     private double latitudineRider;
     @Column(name = "disponibilita_lavoro")
     private boolean disponibilitaLavoro;
+
+
+    //relazione 1:N (bidirezionale con spedizione)
+    @OneToMany(mappedBy = "utente")
+    private Set<Spedizione> spediziones;
+
+    //relazione M:N (bidirezionale con tabella intermedia UtenteOrdini)
+    @ManyToMany(mappedBy = "clienti")
+    private Set<Ordine> ordines;
+
 
 
 

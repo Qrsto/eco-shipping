@@ -16,6 +16,7 @@ import javax.persistence.*;
 
 
 @Entity
+@Table(name = "tabella_configurazione")
 public class TabellaConfigurazione {
     @Id
     @Column(name = "conf_key")

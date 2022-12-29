@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter               //METODI (GRAZIE A LOMBOCK)
 @Setter
@@ -50,8 +51,25 @@ public class Ordine {
 	private double longitudineDestinazione;
 	@Column(name = "latitudine_destinazione")
 	private double latitudineDestinazione;
-	@Column(name = "id_utente")
-	private int idUtente;
+
+	//relazione bidirezionale N:1 (inversa)
+
+
+	//relazione 1:1 con spedizione
+	@OneToOne(mappedBy = "ordine",cascade = CascadeType.ALL, orphanRemoval = true)
+	@PrimaryKeyJoinColumn
+	private Spedizione spedizione;
+
+	@ManyToMany
+	@JoinTable(name = "utente_ordini", joinColumns = {
+			@JoinColumn(name = "id_ordine")
+	}, inverseJoinColumns = @JoinColumn(name = "id_utente"))
+	private Set<Utente> clienti;
+
+
+
+
+
 
 
 }

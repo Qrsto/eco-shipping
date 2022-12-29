@@ -19,8 +19,10 @@ public class Spedizione {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_ordine;             //PK
-    private int id_rider;              //FK
+    @Column(name = "id_ordine")
+    private int idOrdine;       //PK
+    @Column(name = "id_rider")
+    private int idRider;              //FK
     @Column(name = "data_evasione")
     private Date dataEvasione;
     @Column(name = "ora_evasione")
@@ -30,6 +32,23 @@ public class Spedizione {
     //Può essere anche null (se tipostato != "Non c..")
     @Column(name = "note_stato_nc")
     private String noteStatoNc;
+
+    // relazione 1:1 bidirezionale
+    @OneToOne
+    @JoinColumn (name = "id_ordine")
+    @MapsId
+    private Ordine ordine;
+
+    //relazione N:1 bidirezionale con Utente
+    @ManyToOne
+    @JoinColumn(name = "id_utente")
+    private Utente utente;
+
+
+
+
+
+
 
 
 
