@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Set;
 
 @Getter
@@ -22,7 +23,7 @@ public class Utente {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     @Column(name = "id_utente")
-    private int idUtente;
+    private int idUtente;        //PK
     private String nome;
     private String cognome;
     @Column(name = "indirizzo_residenza")
@@ -30,11 +31,11 @@ public class Utente {
     private String citta;
     private String cap;
     @Column(name = "data_nas")
-    private String dataNasc;
+    private Date dataNasc;
     @Column(name = "num_telefono")
     private String numTelefono;
     private String password;
-    private String IBAN;
+    private String iban;
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_utente")
     private TipoUtente tipoUtente;

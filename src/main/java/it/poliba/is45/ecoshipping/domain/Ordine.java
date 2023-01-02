@@ -9,7 +9,7 @@ import lombok.Getter;
 import javax.persistence.*;
 import java.util.Set;
 
-@Getter               //METODI (GRAZIE A LOMBOCK)
+@Getter               //METODI (LOMBOCK)
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,13 +21,17 @@ public class Ordine {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_ordine")
-	private int idOrdine;
+	private int idOrdine;                         //PK
+	@Column(name = "FK_id_spedizione")
+	private int idSpedizione;
 	@Column(name = "indirizzo_partenza")
 	private String indirizzoPartenza;
 	@Column(name = "indirizzo_consegna")
 	private String indirizzoConsegna;
 	@Column(name = "volume_spedizione")
 	private float volumeSpedizione;
+	@Column(name = "peso_spedizione")
+	private float pesoSpedizione;
 	@Column(name = "num_telefono_destinatario")
 	private int numTelefonoDestinatario;
 	@Enumerated(EnumType.STRING)
@@ -35,9 +39,6 @@ public class Ordine {
 	private MetodoPagamento metodoPagamento;
 	@Column(name = "note_consegna")
 	private String noteConsegna;
-	@Column(name = "peso_spedizione")
-	private float pesoSpedizione;
-
 	@Enumerated (EnumType.STRING)
 	@Column(name = "fascia_oraria")
 	private FasciaOraria fasciaOraria;
@@ -55,8 +56,15 @@ public class Ordine {
 	//relazione bidirezionale N:1 (inversa)
 
 
-	//relazione 1:1 con spedizione
+	/* relazione 1:1 con spedizione
+	con @OneToOne(mappedBy = "ordine", cascade = CascadeType.ALL, orphanRemoval = true) stiamo indicando a JPA
+	che c'è una relazione 1:1 con la classe Ordine che mappa la tabella Spedizione. Inoltre, con cascade = CascadeType.ALL,
+	indichiamo che è attivo il cascade su tutte le operazioni di  INSERT, UPDATE, DELETE (non è obbligatorio avere il cascade lato db).
+	Infine, con orphanRemoval = true indichiamo che se un figlio, Spedizione, rimane "orfano" del padre, Ordine,
+	(ovvero ha foreign key null), deve essere cancellato automaticamente.
+	*/
 	@OneToOne(mappedBy = "ordine",cascade = CascadeType.ALL, orphanRemoval = true)
+	//Con @PrimaryKeyJoinColumn, indichiamo a JPA che la tabella spedizione ha come chiave primaria la stessa della tabella Ordine.
 	@PrimaryKeyJoinColumn
 	private Spedizione spedizione;
 

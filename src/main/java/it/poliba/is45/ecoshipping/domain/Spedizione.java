@@ -5,9 +5,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
 import javax.persistence.*;
 import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDateTime;
+
 
 @Getter
 @Setter
@@ -21,12 +23,12 @@ public class Spedizione {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_ordine")
     private int idOrdine;       //PK
-    @Column(name = "id_rider")
+    @Column(name = "FK_id_rider")
     private int idRider;              //FK
-    @Column(name = "data_evasione")
-    private Date dataEvasione;
-    @Column(name = "ora_evasione")
-    private Time oraEvasione;
+    @Column(name = "data_ora_evasione")
+    private LocalDateTime dataOraEvasione;
+    @Column(name="data_ora_presa_in_carico")
+    private LocalDateTime dataOraPresaInCarico;
     @Column(name = "tipo_stato")
     private TipoStato tipoStato;
     //Può essere anche null (se tipostato != "Non c..")
@@ -35,7 +37,7 @@ public class Spedizione {
 
     // relazione 1:1 bidirezionale
     @OneToOne
-    @JoinColumn (name = "id_ordine")
+    @JoinColumn(name = "id_ordine")
     @MapsId
     private Ordine ordine;
 
