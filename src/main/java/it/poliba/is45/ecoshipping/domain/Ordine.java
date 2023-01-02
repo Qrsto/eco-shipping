@@ -33,7 +33,7 @@ public class Ordine {
 	@Column(name = "peso_spedizione")
 	private float pesoSpedizione;
 	@Column(name = "num_telefono_destinatario")
-	private int numTelefonoDestinatario;
+	private String numTelefonoDestinatario;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "metodo_pagamento")
 	private MetodoPagamento metodoPagamento;
@@ -45,13 +45,13 @@ public class Ordine {
 	@Column(name = "costo_finale")
 	private float costoFinale;
 	@Column(name = "longitudine_partenza")
-	private double longitudinePartenza;
+	private Double longitudinePartenza;
 	@Column(name = "latitudine_partenza")
-	private double latitudinePartenza;
+	private Double latitudinePartenza;
 	@Column(name = "longitudine_destinazione")
-	private double longitudineDestinazione;
+	private Double longitudineDestinazione;
 	@Column(name = "latitudine_destinazione")
-	private double latitudineDestinazione;
+	private Double latitudineDestinazione;
 
 	//relazione bidirezionale N:1 (inversa)
 

@@ -21,7 +21,6 @@ public class Utente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     @Column(name = "id_utente")
     private int idUtente;        //PK
     private String nome;

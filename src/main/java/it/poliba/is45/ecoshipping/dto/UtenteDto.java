@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,7 +19,7 @@ public class UtenteDto {
     private int idUtente;
     private String nome;
     private String cognome;
-    private String dataNas;
+    private Date dataNas;
     private String indirizzoResidenza;  //applicarlo a tutte lentita
     private String citta;
     private String cap;

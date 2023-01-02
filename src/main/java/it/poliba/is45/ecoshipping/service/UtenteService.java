@@ -1,5 +1,6 @@
 package it.poliba.is45.ecoshipping.service;
 
+import it.poliba.is45.ecoshipping.domain.Ordine;
 import it.poliba.is45.ecoshipping.enumeratives.TipoUtente;
 import it.poliba.is45.ecoshipping.domain.Utente;
 import it.poliba.is45.ecoshipping.dto.UtenteDto;
@@ -30,7 +31,7 @@ public class UtenteService {
         utenteDto.setCap(utente.getCap());
         utenteDto.setNumTelefono(utente.getNumTelefono());
         utenteDto.setPassword(utente.getPassword());
-        utenteDto.setIban(utente.getIBAN());
+        utenteDto.setIban(utente.getIban());
         return utenteDto;
     }
 
@@ -107,11 +108,24 @@ public class UtenteService {
         newUser.setNumTelefono(utenteDto.getNumTelefono());
         newUser.setPassword(utenteDto.getPassword());
         newUser.setDisponibilitaLavoro(false);
-        newUser.setIBAN(utenteDto.getIban());
+        newUser.setIban(utenteDto.getIban());
         newUser.setLongitudineRider(0);
         newUser.setLatitudineRider(0);
         return newUser;
     }
+
+    //trasforma coordinate in distanza tra tre punti
+    //da completare
+    /*
+    private int distanceInKm(Utente utente, Ordine ordine) {
+        Double[] a = {utente.getLatitudineRider(), utente.getLongitudineRider()};
+        Double[] b = {ordine.getLatitudinePartenza(), ordine.getLongitudinePartenza()};
+        Double[] c = {ordine.getLatitudineDestinazione(), ordine.getLongitudineDestinazione()};
+        int distance = Math.round(((Math.abs())))
+
+    }
+
+     */
 
        /*
     public String deleteAllUser() {

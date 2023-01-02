@@ -65,6 +65,7 @@ public class OrdineService {
     private OrdineDto toOrdineDto(Ordine ordine) {
         OrdineDto ordineDto = new OrdineDto();
         ordineDto.setIdOrdine(ordine.getIdOrdine());
+        ordineDto.setIdSpedizione(ordine.getIdSpedizione());
         ordineDto.setIndirizzoPartenza(ordine.getIndirizzoPartenza());
         ordineDto.setIndirizzoConsegna(ordine.getIndirizzoConsegna());
         ordineDto.setPesoSpedizione(ordine.getPesoSpedizione());

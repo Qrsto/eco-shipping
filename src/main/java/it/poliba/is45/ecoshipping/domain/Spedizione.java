@@ -29,6 +29,7 @@ public class Spedizione {
     private LocalDateTime dataOraEvasione;
     @Column(name="data_ora_presa_in_carico")
     private LocalDateTime dataOraPresaInCarico;
+    @Enumerated(EnumType.STRING)
     @Column(name = "tipo_stato")
     private TipoStato tipoStato;
     //Può essere anche null (se tipostato != "Non c..")
