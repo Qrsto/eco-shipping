@@ -31,7 +31,7 @@ public class UtenteService {
         utenteDto.setCap(utente.getCap());
         utenteDto.setNumTelefono(utente.getNumTelefono());
         utenteDto.setPassword(utente.getPassword());
-        utenteDto.setIban(utente.getIban());
+        utenteDto.setIban(utente.getIban());  //devi sempre gestire la visualizzazione dell'iban in base al caso (vedi findAllByTipoUtente)
         return utenteDto;
     }
 
@@ -40,15 +40,8 @@ public class UtenteService {
         List<Utente> utenteList = utenteRepository.findAllByTipoUtente(tipoUtente);
         List<UtenteDto> utenteDtoList = new ArrayList<>();
         for (Utente utente : utenteList) {
-            UtenteDto utenteDto = new UtenteDto();
-            utenteDto.setIdUtente(utente.getIdUtente());
-            utenteDto.setNome(utente.getNome());
-            utenteDto.setCognome(utente.getCognome());
-            utenteDto.setIndirizzoResidenza(utente.getIndirizzoResidenza());
-            utenteDto.setCitta(utente.getCitta());
-            utenteDto.setCap(utente.getCap());
-            utenteDto.setDataNas(utente.getDataNasc());
-            utenteDto.setNumTelefono(utente.getNumTelefono());
+            UtenteDto utenteDto = toUtenteDto(utente);
+            utenteDto.setIban("******************************");
             utenteDtoList.add(utenteDto);
         }
         return utenteDtoList;
@@ -97,6 +90,14 @@ public class UtenteService {
         return utenteRepository.save(newUser);
     }
 
+
+    /* 41.11756379579976, 16.871091585638478 (Bari)
+       44.52512585109125, 11.390366494774641 (Bologna)
+       Δs = 591.07 km (circa)
+
+     */
+
+
     private Utente utilsForCreation (UtenteDto utenteDto){
         Utente newUser = new Utente();
         newUser.setNome(utenteDto.getNome());
@@ -109,23 +110,70 @@ public class UtenteService {
         newUser.setPassword(utenteDto.getPassword());
         newUser.setDisponibilitaLavoro(false);
         newUser.setIban(utenteDto.getIban());
-        newUser.setLongitudineRider(0);
-        newUser.setLatitudineRider(0);
+        newUser.setLongitudineRider(10.2548441);
+        newUser.setLatitudineRider(12.25151);
         return newUser;
     }
 
     //trasforma coordinate in distanza tra tre punti
     //da completare
-    /*
+
     private int distanceInKm(Utente utente, Ordine ordine) {
         Double[] a = {utente.getLatitudineRider(), utente.getLongitudineRider()};
         Double[] b = {ordine.getLatitudinePartenza(), ordine.getLongitudinePartenza()};
         Double[] c = {ordine.getLatitudineDestinazione(), ordine.getLongitudineDestinazione()};
-        int distance = Math.round(((Math.abs())))
-
+        for(int i=0; i<2; i++ ){
+            a[i] = Math.toRadians(a[i]);
+            b[i] = Math.toRadians(b[i]);
+            c[i] = Math.toRadians(c[i]);
+        }
+        double dLat = b[0]-a[0];
+        double dLon = b[1]-a[1];
+        //da completare
+        double s = Math.pow(Math.sin(dLat / 2),2) + Math.pow(Math.sin(dLon / 2),2) * Math.cos(a[0]);
+        return 0;
     }
 
+
+
+
+    /*
+    double dLat = Math.toRadians(lat2 - lat1);
+        double dLon = Math.toRadians(lon2 - lon1);
+
+        // convert to radians
+        lat1 = Math.toRadians(lat1);
+        lat2 = Math.toRadians(lat2);
+
+        // apply formulae
+        double a = Math.pow(Math.sin(dLat / 2), 2) +
+                   Math.pow(Math.sin(dLon / 2), 2) *
+                   Math.cos(lat1) *
+                   Math.cos(lat2);
+        double rad = 6371;
+        double c = 2 * Math.asin(Math.sqrt(a));
+        return rad * c;
      */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
        /*
     public String deleteAllUser() {
