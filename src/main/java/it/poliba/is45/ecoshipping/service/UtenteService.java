@@ -91,14 +91,14 @@ public class UtenteService {
     }
 
 
-    /* 41.11756379579976, 16.871091585638478 (Bari)
+    /* (41.11756379579976, 16.871091585638478) (Bari)
        44.52512585109125, 11.390366494774641 (Bologna)
        Δs = 591.07 km (circa)
 
      */
 
 
-    private Utente utilsForCreation (UtenteDto utenteDto){
+    private Utente utilsForCreation (UtenteDto utenteDto) {
         Utente newUser = new Utente();
         newUser.setNome(utenteDto.getNome());
         newUser.setCognome(utenteDto.getCognome());
@@ -113,47 +113,12 @@ public class UtenteService {
         newUser.setLongitudineRider(10.2548441);
         newUser.setLatitudineRider(12.25151);
         return newUser;
-    }
 
-    //trasforma coordinate in distanza tra tre punti
-    //da completare
-
-    private int distanceInKm(Utente utente, Ordine ordine) {
-        Double[] a = {utente.getLatitudineRider(), utente.getLongitudineRider()};
-        Double[] b = {ordine.getLatitudinePartenza(), ordine.getLongitudinePartenza()};
-        Double[] c = {ordine.getLatitudineDestinazione(), ordine.getLongitudineDestinazione()};
-        for(int i=0; i<2; i++ ){
-            a[i] = Math.toRadians(a[i]);
-            b[i] = Math.toRadians(b[i]);
-            c[i] = Math.toRadians(c[i]);
-        }
-        double dLat = b[0]-a[0];
-        double dLon = b[1]-a[1];
-        //da completare
-        double s = Math.pow(Math.sin(dLat / 2),2) + Math.pow(Math.sin(dLon / 2),2) * Math.cos(a[0]);
-        return 0;
     }
 
 
 
 
-    /*
-    double dLat = Math.toRadians(lat2 - lat1);
-        double dLon = Math.toRadians(lon2 - lon1);
-
-        // convert to radians
-        lat1 = Math.toRadians(lat1);
-        lat2 = Math.toRadians(lat2);
-
-        // apply formulae
-        double a = Math.pow(Math.sin(dLat / 2), 2) +
-                   Math.pow(Math.sin(dLon / 2), 2) *
-                   Math.cos(lat1) *
-                   Math.cos(lat2);
-        double rad = 6371;
-        double c = 2 * Math.asin(Math.sqrt(a));
-        return rad * c;
-     */
 
 
 

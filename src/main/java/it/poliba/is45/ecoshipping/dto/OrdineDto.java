@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Column;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -27,5 +29,9 @@ public class OrdineDto {
     private FasciaOraria fasciaOraria;
     private String noteConsegna;
     private float costoFinale;
+    private Double longitudinePartenza;
+    private Double latitudinePartenza;
+    private Double longitudineDestinazione;
+    private Double latitudineDestinazione;
 
 }

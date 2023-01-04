@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 
@@ -71,6 +72,17 @@ public class UtenteController {
     public ResponseEntity<Utente> createNewAdminUser(@RequestBody UtenteDto utenteDto) {
         return ResponseEntity.ok(utenteService.createNewAdminUser(utenteDto));
     }
+
+   /*
+   https://www.bezkoder.com/jpa-repository-query/
+   PER QUERY
+    */
+
+
+
+
+
+
 
 
 
