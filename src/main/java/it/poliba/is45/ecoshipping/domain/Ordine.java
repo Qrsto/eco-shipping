@@ -68,11 +68,10 @@ public class Ordine {
 	@PrimaryKeyJoinColumn
 	private Spedizione spedizione;
 
-	@ManyToMany
-	@JoinTable(name = "utente_ordini", joinColumns = {
-			@JoinColumn(name = "id_ordine")
-	}, inverseJoinColumns = @JoinColumn(name = "id_utente"))
-	private Set<Utente> clienti;
+
+	@ManyToOne
+	@JoinColumn(name = "id_utente")
+	private Utente utente;
 
 
 

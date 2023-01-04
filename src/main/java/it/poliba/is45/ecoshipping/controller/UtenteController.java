@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.TypedQuery;
+
 import java.util.List;
 
 
@@ -54,6 +54,7 @@ public class UtenteController {
             return null;
         }
 
+
     }
 
 
@@ -93,11 +94,6 @@ public class UtenteController {
         return ResponseEntity.ok(utenteService.deleteAllUser());
     }
      */
-
-
-
-
-
 
 
 
