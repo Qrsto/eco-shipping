@@ -19,12 +19,16 @@ public class UtenteController {
 
     @Autowired
     UtenteService utenteService;
-
-    //Homepage di EcoSHIPPING
     @GetMapping("/")
-    public String homepage() {
-        return "Benvenuti nella homepage di ecoshipping";
+    public String login(){
+        return "Login effettuato";
     }
+
+    //@GetMapping("/getUsers")
+   // public ResponseEntity<List<UtenteDto>> getAllUsers () {
+        //List<UtenteDto> utenteDtoList = utenteService.
+        //return utenteService;
+    //}
 
     @GetMapping ("/utente/clienti")
     public ResponseEntity<List<UtenteDto>> getAllClientUsers () {
@@ -73,6 +77,8 @@ public class UtenteController {
         return ResponseEntity.ok(utenteService.createNewAdminUser(utenteDto));
     }
 
+}
+
    /*
    https://www.bezkoder.com/jpa-repository-query/
    PER QUERY
@@ -102,4 +108,4 @@ public class UtenteController {
 
 
 
-}
+
