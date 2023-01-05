@@ -15,6 +15,11 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class OrdineController {
 
+    /*
+    PER SPRING SECURITY
+    https://www.kindsonthegenius.com/spring-security-tutorial-storing-user-credential-in-mysql-database/
+     */
+
     @Autowired
     OrdineService ordineService;
 

@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.TypedQuery;
+
 import java.util.List;
 
 
@@ -58,6 +58,7 @@ public class UtenteController {
             return null;
         }
 
+
     }
 
 
@@ -103,9 +104,13 @@ public class UtenteController {
 
 
 
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+}
+>>>>>>> f275e7980860600d840e6a1b417bc3439533ef17

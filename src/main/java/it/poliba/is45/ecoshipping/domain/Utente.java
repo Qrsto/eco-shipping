@@ -57,10 +57,9 @@ public class Utente {
     @OneToMany(mappedBy = "utente")
     private Set<Spedizione> spediziones;
 
-    //relazione M:N (bidirezionale con tabella intermedia UtenteOrdini)
-    @ManyToMany(mappedBy = "clienti")
-    private Set<Ordine> ordines;
-
+    //relazione 1:N (bidirezionale con tabella intermedia Ordine)
+    @OneToMany(mappedBy = "utente")
+    private Set<Ordine> ordini;
 
 
     public Collection<? extends GrantedAuthority> getAutorities(){
