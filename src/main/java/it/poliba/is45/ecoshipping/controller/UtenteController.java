@@ -21,7 +21,6 @@ public class UtenteController {
     @Autowired
     UtenteService utenteService;
 
-
     @GetMapping ("/getallutenti")
     public ResponseEntity<List<UtenteDto>> getAllUsers(){
         List<UtenteDto> utenteDtoList = utenteService.findAllUsers();
