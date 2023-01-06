@@ -20,10 +20,7 @@ public class UtenteController {
 
     @Autowired
     UtenteService utenteService;
-    @GetMapping("/")
-    public String login(){
-        return "Login effettuato";
-    }
+
 
     @GetMapping ("/getallutenti")
     public ResponseEntity<List<UtenteDto>> getAllUsers(){
@@ -57,9 +54,11 @@ public class UtenteController {
             exception.printStackTrace();
             return null;
         }
-
-
     }
+
+
+
+
 
 
 
@@ -77,6 +76,8 @@ public class UtenteController {
     public ResponseEntity<Utente> createNewAdminUser(@RequestBody UtenteDto utenteDto) {
         return ResponseEntity.ok(utenteService.createNewAdminUser(utenteDto));
     }
+
+
 
 }
 

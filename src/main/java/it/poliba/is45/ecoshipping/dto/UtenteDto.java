@@ -23,9 +23,10 @@ public class UtenteDto {
     private String indirizzoResidenza;  //applicarlo a tutte lentita
     private String citta;
     private String cap;
-
     private String numTelefono;
     private String password;
+    private String username;
+    private String role;
     private String iban;
 
 

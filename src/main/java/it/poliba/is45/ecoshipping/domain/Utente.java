@@ -25,8 +25,9 @@ import java.util.Set;
 public class Utente {
 
 
-    @Id
+
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
     @Column(name = "id_utente")
     private int idUtente;        //PK
     private String username;
@@ -51,11 +52,14 @@ public class Utente {
     private double latitudineRider;
     @Column(name = "disponibilita_lavoro")
     private boolean disponibilitaLavoro;
+    private String role;
+
+
 
 
     //relazione 1:N (bidirezionale con spedizione)
     @OneToMany(mappedBy = "utente")
-    private Set<Spedizione> spediziones;
+    private Set<Spedizione> spedizione;
 
     //relazione 1:N (bidirezionale con tabella intermedia Ordine)
     @OneToMany(mappedBy = "utente")
