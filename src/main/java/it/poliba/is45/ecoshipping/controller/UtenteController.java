@@ -5,6 +5,7 @@ import it.poliba.is45.ecoshipping.domain.Utente;
 import it.poliba.is45.ecoshipping.enumeratives.TipoUtente;
 import it.poliba.is45.ecoshipping.dto.UtenteDto;
 import it.poliba.is45.ecoshipping.service.UtenteService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,12 +24,7 @@ public class UtenteController {
     public String login(){
         return "Login effettuato";
     }
-
-    //@GetMapping("/getUsers")
-   // public ResponseEntity<List<UtenteDto>> getAllUsers () {
-        //List<UtenteDto> utenteDtoList = utenteService.
-        //return utenteService;
-    //}
+    
 
     @GetMapping ("/utente/clienti")
     public ResponseEntity<List<UtenteDto>> getAllClientUsers () {
@@ -101,16 +97,3 @@ public class UtenteController {
     }
      */
 
-
-
-
-<<<<<<< HEAD
-
-
-
-
-
-
-=======
-}
->>>>>>> f275e7980860600d840e6a1b417bc3439533ef17
