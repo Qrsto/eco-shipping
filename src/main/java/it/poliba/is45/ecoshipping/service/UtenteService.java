@@ -1,6 +1,5 @@
 package it.poliba.is45.ecoshipping.service;
 
-import it.poliba.is45.ecoshipping.domain.Ordine;
 import it.poliba.is45.ecoshipping.enumeratives.TipoUtente;
 import it.poliba.is45.ecoshipping.domain.Utente;
 import it.poliba.is45.ecoshipping.dto.UtenteDto;
@@ -116,6 +115,15 @@ public class UtenteService {
 
     }
 
+    public List<UtenteDto> findAllUsers() {
+        List<Utente> utenteList = utenteRepository.findAll();
+        List<UtenteDto> utenteDtoList = new ArrayList<>();
+        for (Utente utente : utenteList) {
+            UtenteDto utenteDto = toUtenteDto(utente);
+            utenteDtoList.add(utenteDto);
+        }
+        return utenteDtoList;
+    }
 
 
 

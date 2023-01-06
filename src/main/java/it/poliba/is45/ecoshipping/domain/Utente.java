@@ -62,8 +62,5 @@ public class Utente {
     private Set<Ordine> ordini;
 
 
-    public Collection<? extends GrantedAuthority> getAutorities(){
-        return List.of(new SimpleGrantedAuthority("ADMIN"));
-    }
 
 }

@@ -24,8 +24,12 @@ public class UtenteController {
     public String login(){
         return "Login effettuato";
     }
-    
 
+    @GetMapping ("/getallutenti")
+    public ResponseEntity<List<UtenteDto>> getAllUsers(){
+        List<UtenteDto> utenteDtoList = utenteService.findAllUsers();
+        return ResponseEntity.ok(utenteDtoList);
+    }
     @GetMapping ("/utente/clienti")
     public ResponseEntity<List<UtenteDto>> getAllClientUsers () {
        List<UtenteDto> utenteDtoList = utenteService.findAllByTipoUtente(TipoUtente.CLIENTE);
