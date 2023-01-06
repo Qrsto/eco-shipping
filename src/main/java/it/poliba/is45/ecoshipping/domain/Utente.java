@@ -6,8 +6,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.GrantedAuthoritiesContainer;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -23,6 +29,7 @@ public class Utente {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_utente")
     private int idUtente;        //PK
+    private String username;
     private String nome;
     private String cognome;
     @Column(name = "indirizzo_residenza")
@@ -55,7 +62,8 @@ public class Utente {
     private Set<Ordine> ordini;
 
 
-
-
+    public Collection<? extends GrantedAuthority> getAutorities(){
+        return List.of(new SimpleGrantedAuthority("ADMIN"));
+    }
 
 }
