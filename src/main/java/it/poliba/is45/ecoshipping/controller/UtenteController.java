@@ -80,10 +80,7 @@ public class UtenteController {
 
 }
 
-   /*
-   https://www.bezkoder.com/jpa-repository-query/
-   PER QUERY
-    */
+
 
 
 
