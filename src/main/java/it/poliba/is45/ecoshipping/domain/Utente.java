@@ -2,10 +2,7 @@ package it.poliba.is45.ecoshipping.domain;
 
 
 import it.poliba.is45.ecoshipping.enumeratives.TipoUtente;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.GrantedAuthoritiesContainer;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -20,6 +17,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 
 @Entity
 public class Utente {
@@ -42,6 +40,7 @@ public class Utente {
     private String numTelefono;
     private String password;
     private String iban;
+    private String email;
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_utente")
     private TipoUtente tipoUtente;
@@ -51,7 +50,7 @@ public class Utente {
     private double latitudineRider;
     @Column(name = "disponibilita_lavoro")
     private boolean disponibilitaLavoro;
-    private String role;
+
 
 
     //relazione 1:N (bidirezionale con spedizione)

@@ -8,8 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
-
+import java.util.Optional;
 
 
 @Repository
@@ -17,7 +16,7 @@ public interface UtenteRepository extends JpaRepository<Utente,Integer> {
 
     List<Utente> findAllByTipoUtente(TipoUtente tipoUtente);
     Utente findByUsername(String username);
-    Utente findByEmail(String email);
+    Optional<Utente> findByEmail(String email);
     Utente findFirstByUsername(String username);
 
 
