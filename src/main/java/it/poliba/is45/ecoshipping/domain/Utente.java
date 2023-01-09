@@ -25,7 +25,6 @@ import java.util.Set;
 public class Utente {
 
 
-
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column(name = "id_utente")
@@ -55,8 +54,6 @@ public class Utente {
     private String role;
 
 
-
-
     //relazione 1:N (bidirezionale con spedizione)
     @OneToMany(mappedBy = "utente")
     private Set<Spedizione> spedizione;
@@ -64,7 +61,6 @@ public class Utente {
     //relazione 1:N (bidirezionale con tabella intermedia Ordine)
     @OneToMany(mappedBy = "utente")
     private Set<Ordine> ordini;
-
 
 
 }

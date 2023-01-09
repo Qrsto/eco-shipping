@@ -16,6 +16,9 @@ import java.util.List;
 public interface UtenteRepository extends JpaRepository<Utente,Integer> {
 
     List<Utente> findAllByTipoUtente(TipoUtente tipoUtente);
+    Utente findByUsername(String username);
+    Utente findByEmail(String email);
+    Utente findFirstByUsername(String username);
 
 
 /*
