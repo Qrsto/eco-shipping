@@ -57,12 +57,6 @@ public class UtenteController {
         }
     }
 
-
-
-
-
-
-
     @PostMapping("/utente/nuovocliente")
     public ResponseEntity<Utente> createNewClientUser(@RequestBody UtenteDto utenteDto) {
        return ResponseEntity.ok(utenteService.createNewClientUser(utenteDto));
