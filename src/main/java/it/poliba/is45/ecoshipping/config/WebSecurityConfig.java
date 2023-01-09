@@ -54,24 +54,11 @@ public class WebSecurityConfig {
                 .antMatchers("/", "/login", "/register").permitAll()
                 .antMatchers("/admin/**").hasAnyAuthority("ADMIN")
                 .antMatchers("/account/**").hasAnyAuthority("USER")
-                .antMatchers("/getallutenti/").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 // form login
-                .csrf().disable().formLogin()
-                .loginPage("/login")
-                .failureUrl("/login?error=true")
-                .successHandler(sucessHandler)
-                .usernameParameter("email")
-                .passwordParameter("password")
-                .and()
-                // logout
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/")
-                .and()
-                .exceptionHandling()
-                .accessDeniedPage("/access-denied");
+                .csrf().disable();
+
 
         http.authenticationProvider(authenticationProvider());
         http.headers().frameOptions().sameOrigin();
