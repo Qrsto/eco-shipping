@@ -55,9 +55,9 @@ public class Utente {
 
     private String iban;
 
-    @Enumerated(EnumType.STRING)
+    /*@Enumerated(EnumType.STRING)
     @Column(name = "tipo_utente")
-    private TipoUtente tipoUtente;
+    private TipoUtente tipoUtente;*/
 
     @Column(name = "longitudine_rider")
     private double longitudineRider;

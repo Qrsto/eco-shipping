@@ -1,6 +1,6 @@
 package it.poliba.is45.ecoshipping.service;
 
-import it.poliba.is45.ecoshipping.enumeratives.TipoUtente;
+import it.poliba.is45.ecoshipping.domain.Role;
 import it.poliba.is45.ecoshipping.domain.Utente;
 import it.poliba.is45.ecoshipping.dto.UtenteDto;
 import it.poliba.is45.ecoshipping.repository.UtenteRepository;
@@ -35,8 +35,8 @@ public class UtenteService {
     }
 
     //restituisce una lista di utentiDTO (vedi UtenteDto) che hanno lo specifico tipoUtente passato al metodo
-    public List<UtenteDto> findAllByTipoUtente(TipoUtente tipoUtente) {
-        List<Utente> utenteList = utenteRepository.findAllByTipoUtente(tipoUtente);
+    public List<UtenteDto> findAllByRole(Role role) {
+        List<Utente> utenteList = utenteRepository.findAllByRole(role);
         List<UtenteDto> utenteDtoList = new ArrayList<>();
         for (Utente utente : utenteList) {
             UtenteDto utenteDto = toUtenteDto(utente);
@@ -74,18 +74,18 @@ public class UtenteService {
 
     public Utente createNewClientUser (UtenteDto utenteDto) {
         Utente newUser = utilsForCreation(utenteDto);
-        newUser.setTipoUtente(TipoUtente.CLIENTE);
+        newUser.setRole(Role.USER);
         return utenteRepository.save(newUser);
     }
     public Utente createNewRiderUser (UtenteDto utenteDto) {
         Utente newUser = utilsForCreation(utenteDto);
-        newUser.setTipoUtente(TipoUtente.RIDER);
+        newUser.setRole(Role.RIDER);
         return utenteRepository.save(newUser);
     }
 
     public Utente createNewAdminUser (UtenteDto utenteDto) {
         Utente newUser = utilsForCreation(utenteDto);
-        newUser.setTipoUtente(TipoUtente.ADMIN);
+        newUser.setRole(Role.ADMIN);
         return utenteRepository.save(newUser);
     }
 

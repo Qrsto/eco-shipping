@@ -1,6 +1,7 @@
 package it.poliba.is45.ecoshipping.repository;
 
 
+import it.poliba.is45.ecoshipping.domain.Role;
 import it.poliba.is45.ecoshipping.enumeratives.TipoUtente;
 import it.poliba.is45.ecoshipping.domain.Utente;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,7 +15,7 @@ import java.util.Optional;
 @Repository
 public interface UtenteRepository extends JpaRepository<Utente,Integer> {
 
-    List<Utente> findAllByTipoUtente(TipoUtente tipoUtente);
+    List<Utente> findAllByRole(Role role);
     Utente findByUsername(String username);
     Optional<Utente> findByEmail(String email);
     Utente findFirstByUsername(String username);

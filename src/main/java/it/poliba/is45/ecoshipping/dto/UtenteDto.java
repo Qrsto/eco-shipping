@@ -1,6 +1,7 @@
 package it.poliba.is45.ecoshipping.dto;
 
 
+import it.poliba.is45.ecoshipping.domain.Role;
 import it.poliba.is45.ecoshipping.enumeratives.TipoUtente;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,7 +27,7 @@ public class UtenteDto {
     private String numTelefono;
     private String password;
     private String username;
-    private String role;
+    private Role role;
     private String iban;
 
 

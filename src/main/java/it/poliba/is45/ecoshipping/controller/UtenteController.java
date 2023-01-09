@@ -1,6 +1,7 @@
 package it.poliba.is45.ecoshipping.controller;
 
 
+import it.poliba.is45.ecoshipping.domain.Role;
 import it.poliba.is45.ecoshipping.domain.Utente;
 import it.poliba.is45.ecoshipping.enumeratives.TipoUtente;
 import it.poliba.is45.ecoshipping.dto.UtenteDto;
@@ -29,19 +30,19 @@ public class UtenteController {
     }
     @GetMapping ("/utente/clienti")
     public ResponseEntity<List<UtenteDto>> getAllClientUsers () {
-       List<UtenteDto> utenteDtoList = utenteService.findAllByTipoUtente(TipoUtente.CLIENTE);
+       List<UtenteDto> utenteDtoList = utenteService.findAllByRole(Role.USER);
        return ResponseEntity.ok(utenteDtoList);
     }
 
     @GetMapping ("/utente/riders")
     public ResponseEntity<List<UtenteDto>> getAllRiderUsers () {
-        List<UtenteDto> utenteDtoList = utenteService.findAllByTipoUtente(TipoUtente.RIDER);
+        List<UtenteDto> utenteDtoList = utenteService.findAllByRole(Role.RIDER);
         return ResponseEntity.ok(utenteDtoList);
     }
 
     @GetMapping ("/utente/admin")
     public ResponseEntity<List<UtenteDto>> getAllAdminUsers () {
-        List<UtenteDto> utenteDtoList = utenteService.findAllByTipoUtente(TipoUtente.ADMIN);
+        List<UtenteDto> utenteDtoList = utenteService.findAllByRole(Role.ADMIN);
         return ResponseEntity.ok(utenteDtoList);
     }
 
