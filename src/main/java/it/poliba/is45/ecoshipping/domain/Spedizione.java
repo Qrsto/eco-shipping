@@ -39,7 +39,6 @@ public class Spedizione {
     // relazione 1:1 bidirezionale
     @OneToOne
     @JoinColumn(name = "id_ordine")
-    @MapsId
     private Ordine ordine;
 
     //relazione N:1 bidirezionale con Utente
