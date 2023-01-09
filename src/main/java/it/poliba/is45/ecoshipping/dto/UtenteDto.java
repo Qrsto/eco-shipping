@@ -2,7 +2,6 @@ package it.poliba.is45.ecoshipping.dto;
 
 
 import it.poliba.is45.ecoshipping.domain.Role;
-import it.poliba.is45.ecoshipping.enumeratives.TipoUtente;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +23,7 @@ public class UtenteDto {
     private String indirizzoResidenza;  //applicarlo a tutte lentita
     private String citta;
     private String cap;
-    private String numTelefono;
+    private String mobile;
     private String password;
     private String username;
     private Role role;

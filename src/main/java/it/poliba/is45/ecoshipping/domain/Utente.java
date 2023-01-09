@@ -1,12 +1,10 @@
 package it.poliba.is45.ecoshipping.domain;
 
 
-import it.poliba.is45.ecoshipping.enumeratives.TipoUtente;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.GrantedAuthoritiesContainer;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -52,7 +50,7 @@ public class Utente implements UserDetails {
     @Column(name = "data_nas")
     private Date dataNasc;
     @Column(name = "num_telefono")
-    private String numTelefono;
+    private String mobile;
 
     private String iban;
 

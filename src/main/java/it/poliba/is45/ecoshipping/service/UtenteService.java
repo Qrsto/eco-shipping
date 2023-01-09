@@ -28,7 +28,7 @@ public class UtenteService {
         utenteDto.setIndirizzoResidenza(utente.getIndirizzoResidenza());
         utenteDto.setCitta(utenteDto.getCitta());
         utenteDto.setCap(utente.getCap());
-        utenteDto.setNumTelefono(utente.getNumTelefono());
+        utenteDto.setMobile(utente.getMobile());
         utenteDto.setPassword(utente.getPassword());
         utenteDto.setIban(utente.getIban());  //devi sempre gestire la visualizzazione dell'iban in base al caso (vedi findAllByTipoUtente)
         return utenteDto;
@@ -105,7 +105,7 @@ public class UtenteService {
         newUser.setCitta(utenteDto.getCitta());
         newUser.setIndirizzoResidenza(utenteDto.getIndirizzoResidenza());
         newUser.setDataNasc(utenteDto.getDataNas());
-        newUser.setNumTelefono(utenteDto.getNumTelefono());
+        newUser.setMobile(utenteDto.getMobile());
         newUser.setPassword(utenteDto.getPassword());
         newUser.setDisponibilitaLavoro(false);
         newUser.setIban(utenteDto.getIban());

@@ -54,6 +54,7 @@ public class WebSecurityConfig {
                 .antMatchers("/", "/login", "/register").permitAll()
                 .antMatchers("/admin/**").hasAnyAuthority("ADMIN")
                 .antMatchers("/account/**").hasAnyAuthority("USER")
+                .antMatchers("/getallutenti/").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 // form login
