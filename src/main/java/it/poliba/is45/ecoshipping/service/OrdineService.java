@@ -6,7 +6,7 @@ import it.poliba.is45.ecoshipping.domain.Utente;
 import it.poliba.is45.ecoshipping.dto.OrdineDto;
 
 
-
+import it.poliba.is45.ecoshipping.dto.UtenteDto;
 import it.poliba.is45.ecoshipping.enumeratives.FasciaOraria;
 import it.poliba.is45.ecoshipping.enumeratives.MetodoPagamento;
 import it.poliba.is45.ecoshipping.repository.OrdineRepository;
@@ -16,10 +16,7 @@ import it.poliba.is45.ecoshipping.repository.TabellaConfigurazioneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class OrdineService {
@@ -65,6 +62,17 @@ public class OrdineService {
             ordineDtoList.add(ordineDto);
         }
         return ordineDtoList;
+    }
+
+    public OrdineDto findOrdineById (int id)  {
+        Optional<Ordine> ordine = ordineRepository.findById(id);
+        if (ordine.isPresent()) {
+            OrdineDto ordineDto = toOrdineDto(ordine.get());
+            return ordineDto;
+        }
+        else
+            throw new RuntimeException("Nessun ordine trovato con id:  " + id);
+
     }
 
     private OrdineDto toOrdineDto(Ordine ordine) {

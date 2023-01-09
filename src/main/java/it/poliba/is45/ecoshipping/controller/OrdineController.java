@@ -6,6 +6,7 @@ import it.poliba.is45.ecoshipping.domain.Ordine;
 
 import it.poliba.is45.ecoshipping.dto.OrdineDto;
 
+import it.poliba.is45.ecoshipping.dto.UtenteDto;
 import it.poliba.is45.ecoshipping.service.OrdineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +35,16 @@ public class OrdineController {
         return ResponseEntity.ok(ordineService.createNewOrder(ordineDto));
     }
 
+    @GetMapping("/ordine/{id}")
+    public ResponseEntity<OrdineDto> getOrderById (@PathVariable int id) {
+        try{
+            OrdineDto ordineDto = ordineService.findOrdineById(id);
+            return ResponseEntity.ok(ordineDto);
+        } catch (RuntimeException exception) {
+            exception.printStackTrace();
+            return null;
+        }
+    }
 
 /*
     @PutMapping("/ordine/costofinale")
