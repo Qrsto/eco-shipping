@@ -1,7 +1,7 @@
 package it.poliba.is45.ecoshipping.dto;
 
 
-import it.poliba.is45.ecoshipping.domain.Role;
+import it.poliba.is45.ecoshipping.domain.ERole;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +16,7 @@ import java.util.Date;
 
 
 public class UtenteDto {
-    private int idUtente;
+    private Long idUtente;
     private String nome;
     private String cognome;
     private Date dataNas;
@@ -26,7 +26,7 @@ public class UtenteDto {
     private String mobile;
     private String password;
     private String username;
-    private Role role;
+    private ERole ERole;
     private String iban;
 
 

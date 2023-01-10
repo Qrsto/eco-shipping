@@ -1,7 +1,7 @@
 package it.poliba.is45.ecoshipping.controller;
 
 
-import it.poliba.is45.ecoshipping.domain.Role;
+import it.poliba.is45.ecoshipping.domain.ERole;
 import it.poliba.is45.ecoshipping.domain.Utente;
 import it.poliba.is45.ecoshipping.dto.UtenteDto;
 import it.poliba.is45.ecoshipping.service.UtenteService;
@@ -25,26 +25,28 @@ public class UtenteController {
         List<UtenteDto> utenteDtoList = utenteService.findAllUsers();
         return ResponseEntity.ok(utenteDtoList);
     }
-    @GetMapping ("/utente/clienti")
+  /*  @GetMapping ("/utente/clienti")
     public ResponseEntity<List<UtenteDto>> getAllClientUsers () {
-       List<UtenteDto> utenteDtoList = utenteService.findAllByRole(Role.ROLE_USER);
+       List<UtenteDto> utenteDtoList = utenteService.findAllByRole(ERole.ROLE_USER);
        return ResponseEntity.ok(utenteDtoList);
     }
 
     @GetMapping ("/utente/riders")
     public ResponseEntity<List<UtenteDto>> getAllRiderUsers () {
-        List<UtenteDto> utenteDtoList = utenteService.findAllByRole(Role.ROLE_RIDER);
+        List<UtenteDto> utenteDtoList = utenteService.findAllByRole(ERole.ROLE_RIDER);
         return ResponseEntity.ok(utenteDtoList);
     }
 
     @GetMapping ("/utente/admin")
     public ResponseEntity<List<UtenteDto>> getAllAdminUsers () {
-        List<UtenteDto> utenteDtoList = utenteService.findAllByRole(Role.ROLE_ADMIN);
+        List<UtenteDto> utenteDtoList = utenteService.findAllByRole(ERole.ROLE_ADMIN);
         return ResponseEntity.ok(utenteDtoList);
     }
 
+   */
+
     @GetMapping("/utente/{id}")
-    public ResponseEntity<UtenteDto> getUserById (@PathVariable int id) {
+    public ResponseEntity<UtenteDto> getUserById (@PathVariable Long id) {
         try{
             UtenteDto utenteDto = utenteService.findUtenteById(id);
             return ResponseEntity.ok(utenteDto);
@@ -54,32 +56,10 @@ public class UtenteController {
         }
     }
 
-    @PostMapping("/utente/nuovocliente")
-    public ResponseEntity<Utente> createNewClientUser(@RequestBody UtenteDto utenteDto) {
-       return ResponseEntity.ok(utenteService.createNewClientUser(utenteDto));
-    }
-
-    @PostMapping("/utente/nuovorider")
-    public ResponseEntity<Utente> createNewRiderUser(@RequestBody UtenteDto utenteDto) {
-        return ResponseEntity.ok(utenteService.createNewRiderUser(utenteDto));
-    }
-
-    @PostMapping("/utente/nuovoadmin")
-    public ResponseEntity<Utente> createNewAdminUser(@RequestBody UtenteDto utenteDto) {
-        return ResponseEntity.ok(utenteService.createNewAdminUser(utenteDto));
-    }
 
 
 
 }
-
-
-
-
-
-
-
-
 
 
 

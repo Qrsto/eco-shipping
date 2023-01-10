@@ -4,9 +4,7 @@ package it.poliba.is45.ecoshipping.domain;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -19,7 +17,7 @@ import java.util.*;
 @Builder
 
 @Entity
-public class Utente implements UserDetails {
+public class Utente  {
 
     @SequenceGenerator(
             name = "users_sequence",
@@ -32,7 +30,7 @@ public class Utente implements UserDetails {
             generator = "users_sequence"
     )
     @Column(name = "id_utente")
-    private int idUtente;      //si incrementa da solo ogni volta che si registra un nuovo utente
+    private Long idUtente;      //si incrementa da solo ogni volta che si registra un nuovo utente
     private String username;
     private String password;
     private String nome;
@@ -74,8 +72,7 @@ public class Utente implements UserDetails {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
+
 
     @Column(name = "locked")
     private Boolean locked = false;
@@ -83,11 +80,12 @@ public class Utente implements UserDetails {
     @Column(name = "enabled")
     private Boolean enabled = true;
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(  name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role.name());
-        return Collections.singletonList(authority);
-    }
 
 
     public boolean isAccountNonExpired() {
@@ -117,5 +115,10 @@ public class Utente implements UserDetails {
     @OneToMany(mappedBy = "utente")
     private Set<Ordine> ordini;
 
+    public Utente(String username, String email, String password){
+        this.username= username;
+        this.email=email;
+        this.password=password;
+    }
 
 }

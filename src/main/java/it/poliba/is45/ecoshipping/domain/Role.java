@@ -1,19 +1,30 @@
 package it.poliba.is45.ecoshipping.domain;
 
+import lombok.Getter;
+import lombok.Setter;
 
-public enum Role {
-    ROLE_USER("User"),
-    ROLE_RIDER("Rider"),
-    ROLE_ADMIN("Admin");
+import javax.persistence.*;
 
+@Entity
+@Getter
+@Setter
+@Table(name = "role")
+public class Role {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    private final String value;
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20)
+    private ERole name;
 
-    private Role(String value) {
-        this.value = value;
+    public Role() {
+
     }
 
-    public String getValue() {
-        return value;
+    public Role(ERole name) {
+        this.name = name;
     }
+
+
 }

@@ -1,6 +1,6 @@
 package it.poliba.is45.ecoshipping.service;
 
-import it.poliba.is45.ecoshipping.domain.Role;
+import it.poliba.is45.ecoshipping.domain.ERole;
 import it.poliba.is45.ecoshipping.domain.Utente;
 import it.poliba.is45.ecoshipping.dto.UtenteDto;
 import it.poliba.is45.ecoshipping.repository.UtenteRepository;
@@ -31,7 +31,6 @@ public class UtenteService {
         utenteDto.setMobile(utente.getMobile());
         utenteDto.setPassword(utente.getPassword());
         utenteDto.setIban(utente.getIban());
-        utenteDto.setRole(utente.getRole());
         utenteDto.setUsername(utente.getUsername());
         utenteDto.setDataNas(utente.getDataNasc());
         utenteDto.setCitta(utente.getCitta());
@@ -40,8 +39,8 @@ public class UtenteService {
     }
 
     //restituisce una lista di utentiDTO (vedi UtenteDto) che hanno lo specifico tipoUtente passato al metodo
-    public List<UtenteDto> findAllByRole(Role role) {
-        List<Utente> utenteList = utenteRepository.findAllByRole(role);
+  /*  public List<UtenteDto> findAllByRole(ERole ERole) {
+        List<Utente> utenteList = utenteRepository.findAllByRole(ERole);
         List<UtenteDto> utenteDtoList = new ArrayList<>();
         for (Utente utente : utenteList) {
             UtenteDto utenteDto = toUtenteDto(utente);
@@ -49,9 +48,8 @@ public class UtenteService {
             utenteDtoList.add(utenteDto);
         }
         return utenteDtoList;
-
     }
-
+/*
     /*
     public UtenteDto findUtenteById(long id) {
         Utente utente = utenteRepository.findUtenteById(id);
@@ -65,7 +63,7 @@ public class UtenteService {
     Come si gestisce il metodo ???
 */
 
-    public UtenteDto findUtenteById (int id)  {
+    public UtenteDto findUtenteById (Long id)  {
         Optional<Utente> utente = utenteRepository.findById(id);
         if (utente.isPresent()) {
             UtenteDto utenteDto = toUtenteDto(utente.get());
@@ -76,21 +74,21 @@ public class UtenteService {
 
     }
 
-
+/*
     public Utente createNewClientUser (UtenteDto utenteDto) {
         Utente newUser = utilsForCreation(utenteDto);
-        newUser.setRole(Role.ROLE_USER);
+        newUser.setERole(ERole.ROLE_USER);
         return utenteRepository.save(newUser);
     }
     public Utente createNewRiderUser (UtenteDto utenteDto) {
         Utente newUser = utilsForCreation(utenteDto);
-        newUser.setRole(Role.ROLE_RIDER);
+        newUser.setERole(ERole.ROLE_RIDER);
         return utenteRepository.save(newUser);
     }
 
     public Utente createNewAdminUser (UtenteDto utenteDto) {
         Utente newUser = utilsForCreation(utenteDto);
-        newUser.setRole(Role.ROLE_ADMIN);
+        newUser.setERole(ERole.ROLE_ADMIN);
         return utenteRepository.save(newUser);
     }
 
