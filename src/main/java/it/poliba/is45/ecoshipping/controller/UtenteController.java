@@ -27,19 +27,19 @@ public class UtenteController {
     }
     @GetMapping ("/utente/clienti")
     public ResponseEntity<List<UtenteDto>> getAllClientUsers () {
-       List<UtenteDto> utenteDtoList = utenteService.findAllByRole(Role.USER);
+       List<UtenteDto> utenteDtoList = utenteService.findAllByRole(Role.ROLE_USER);
        return ResponseEntity.ok(utenteDtoList);
     }
 
     @GetMapping ("/utente/riders")
     public ResponseEntity<List<UtenteDto>> getAllRiderUsers () {
-        List<UtenteDto> utenteDtoList = utenteService.findAllByRole(Role.RIDER);
+        List<UtenteDto> utenteDtoList = utenteService.findAllByRole(Role.ROLE_RIDER);
         return ResponseEntity.ok(utenteDtoList);
     }
 
     @GetMapping ("/utente/admin")
     public ResponseEntity<List<UtenteDto>> getAllAdminUsers () {
-        List<UtenteDto> utenteDtoList = utenteService.findAllByRole(Role.ADMIN);
+        List<UtenteDto> utenteDtoList = utenteService.findAllByRole(Role.ROLE_ADMIN);
         return ResponseEntity.ok(utenteDtoList);
     }
 

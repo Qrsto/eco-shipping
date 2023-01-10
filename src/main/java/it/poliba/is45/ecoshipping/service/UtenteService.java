@@ -74,18 +74,18 @@ public class UtenteService {
 
     public Utente createNewClientUser (UtenteDto utenteDto) {
         Utente newUser = utilsForCreation(utenteDto);
-        newUser.setRole(Role.USER);
+        newUser.setRole(Role.ROLE_USER);
         return utenteRepository.save(newUser);
     }
     public Utente createNewRiderUser (UtenteDto utenteDto) {
         Utente newUser = utilsForCreation(utenteDto);
-        newUser.setRole(Role.RIDER);
+        newUser.setRole(Role.ROLE_RIDER);
         return utenteRepository.save(newUser);
     }
 
     public Utente createNewAdminUser (UtenteDto utenteDto) {
         Utente newUser = utilsForCreation(utenteDto);
-        newUser.setRole(Role.ADMIN);
+        newUser.setRole(Role.ROLE_ADMIN);
         return utenteRepository.save(newUser);
     }
 
