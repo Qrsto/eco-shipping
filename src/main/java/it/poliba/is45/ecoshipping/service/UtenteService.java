@@ -30,7 +30,12 @@ public class UtenteService {
         utenteDto.setCap(utente.getCap());
         utenteDto.setMobile(utente.getMobile());
         utenteDto.setPassword(utente.getPassword());
-        utenteDto.setIban(utente.getIban());  //devi sempre gestire la visualizzazione dell'iban in base al caso (vedi findAllByTipoUtente)
+        utenteDto.setIban(utente.getIban());
+        utenteDto.setRole(utente.getRole());
+        utenteDto.setUsername(utente.getUsername());
+        utenteDto.setDataNas(utente.getDataNasc());
+        utenteDto.setCitta(utente.getCitta());
+        //devi sempre gestire la visualizzazione dell'iban in base al caso (vedi findAllByTipoUtente)
         return utenteDto;
     }
 
