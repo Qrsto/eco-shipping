@@ -1,4 +1,4 @@
-package com.bezkoder.springjwt.controllers;
+package it.poliba.is45.ecoshipping.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,15 +16,15 @@ public class TestController {
   }
 
   @GetMapping("/user")
-  @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+  @PreAuthorize("hasRole('CLIENT') or hasRole('RIDER') or hasRole('ADMIN')")
   public String userAccess() {
     return "User Content.";
   }
 
-  @GetMapping("/mod")
-  @PreAuthorize("hasRole('MODERATOR')")
+  @GetMapping("/rider")
+  @PreAuthorize("hasRole('RIDER')")
   public String moderatorAccess() {
-    return "Moderator Board.";
+    return "Rider Board.";
   }
 
   @GetMapping("/admin")
