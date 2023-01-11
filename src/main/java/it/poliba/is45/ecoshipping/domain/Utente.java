@@ -19,16 +19,11 @@ import java.util.*;
 @Entity
 public class Utente  {
 
-    @SequenceGenerator(
-            name = "users_sequence",
-            sequenceName = "users_sequence",
-            allocationSize = 1
-    )
+
+
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "users_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
     @Column(name = "id_utente")
     private Long idUtente;      //si incrementa da solo ogni volta che si registra un nuovo utente
     private String username;
