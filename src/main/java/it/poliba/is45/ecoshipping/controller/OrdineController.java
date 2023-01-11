@@ -10,32 +10,33 @@ import it.poliba.is45.ecoshipping.dto.UtenteDto;
 import it.poliba.is45.ecoshipping.service.OrdineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/api/order")
+@PreAuthorize("hasRole('ROLE_CLIENT') or hasRole('ROLE_RIDER') or hasRole('ROLE_ADMIN')")
 public class OrdineController {
 
-    /*
-    PER SPRING SECURITY
-    https://www.kindsonthegenius.com/spring-security-tutorial-storing-user-credential-in-mysql-database/
-     */
 
     @Autowired
     OrdineService ordineService;
 
-    @GetMapping("/ordine/ordini")
+    @GetMapping("/orders")
     ResponseEntity<List<OrdineDto>> getAllOrders () {
         List<OrdineDto> ordineDtoList = ordineService.findAllOrders();
         return ResponseEntity.ok(ordineDtoList);
     }
 
-    @PostMapping("/ordine/neworder")
-    public ResponseEntity<Ordine> createNewOrder(@RequestBody OrdineDto ordineDto) {
+    @PostMapping("/new")
+    public ResponseEntity<Ordine> createNewOrder(@RequestBody @Valid OrdineDto ordineDto) {
         return ResponseEntity.ok(ordineService.createNewOrder(ordineDto));
     }
 
-    @GetMapping("/ordine/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<OrdineDto> getOrderById (@PathVariable int id) {
         try{
             OrdineDto ordineDto = ordineService.findOrdineById(id);
