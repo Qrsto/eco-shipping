@@ -43,7 +43,6 @@ public class OrdineService {
         newOrdine.setLatitudinePartenza(ordineDto.getLatitudinePartenza());
         newOrdine.setLongitudineDestinazione(ordineDto.getLongitudineDestinazione());
         newOrdine.setLatitudineDestinazione(ordineDto.getLatitudineDestinazione());
-        newOrdine.setUtente(ordineDto.getId_utente());
         return newOrdine;
     }
 
