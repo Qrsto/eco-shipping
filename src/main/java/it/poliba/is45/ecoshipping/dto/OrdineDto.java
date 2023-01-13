@@ -1,6 +1,7 @@
 package it.poliba.is45.ecoshipping.dto;
 
 
+import it.poliba.is45.ecoshipping.domain.Utente;
 import it.poliba.is45.ecoshipping.enumeratives.FasciaOraria;
 import it.poliba.is45.ecoshipping.enumeratives.MetodoPagamento;
 
@@ -32,5 +33,4 @@ public class OrdineDto {
     private Double latitudinePartenza;
     private Double longitudineDestinazione;
     private Double latitudineDestinazione;
-
 }
