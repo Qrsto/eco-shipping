@@ -34,15 +34,15 @@ public class OrdineService {
         newOrdine.setIndirizzoConsegna(ordineDto.getIndirizzoConsegna());
         newOrdine.setVolumeSpedizione(ordineDto.getVolumeSpedizione());
         newOrdine.setPesoSpedizione(ordineDto.getPesoSpedizione());
-        newOrdine.setFasciaOraria(FasciaOraria.MATTINA);
+        newOrdine.setFasciaOraria(ordineDto.getFasciaOraria());
         newOrdine.setNoteConsegna(ordineDto.getNoteConsegna());
         newOrdine.setNumTelefonoDestinatario(ordineDto.getNumTelefonoDestinatario());
-        newOrdine.setMetodoPagamento(MetodoPagamento.CONTANTI);
+        newOrdine.setMetodoPagamento(ordineDto.getMetodoPagamento());
         newOrdine.setCostoFinale(0.0F);
-        newOrdine.setLongitudinePartenza(ordineDto.getLongitudinePartenza());
-        newOrdine.setLatitudinePartenza(ordineDto.getLatitudinePartenza());
-        newOrdine.setLongitudineDestinazione(ordineDto.getLongitudineDestinazione());
-        newOrdine.setLatitudineDestinazione(ordineDto.getLatitudineDestinazione());
+        newOrdine.setLongitudinePartenza(0.0);
+        newOrdine.setLatitudinePartenza(0.0);
+        newOrdine.setLongitudineDestinazione(0.0);
+        newOrdine.setLatitudineDestinazione(0.0);
         return newOrdine;
     }
 
