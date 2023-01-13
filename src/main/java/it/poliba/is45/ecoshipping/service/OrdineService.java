@@ -43,6 +43,7 @@ public class OrdineService {
         newOrdine.setLatitudinePartenza(ordineDto.getLatitudinePartenza());
         newOrdine.setLongitudineDestinazione(ordineDto.getLongitudineDestinazione());
         newOrdine.setLatitudineDestinazione(ordineDto.getLatitudineDestinazione());
+        newOrdine.setUtente(ordineDto.getId_utente());
         return newOrdine;
     }
 
@@ -74,6 +75,7 @@ public class OrdineService {
             throw new RuntimeException("Nessun ordine trovato con id:  " + id);
 
     }
+
 
     private OrdineDto toOrdineDto(Ordine ordine) {
         OrdineDto ordineDto = new OrdineDto();
