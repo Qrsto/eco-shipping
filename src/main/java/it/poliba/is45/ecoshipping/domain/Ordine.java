@@ -53,6 +53,10 @@ public class Ordine {
 	@Column(name = "latitudine_destinazione")
 	private Double latitudineDestinazione;
 
+	/*
+	@Column(name = "id_utente")
+	private int idUtente;
+*/
 	//relazione bidirezionale N:1 (inversa)
 
 

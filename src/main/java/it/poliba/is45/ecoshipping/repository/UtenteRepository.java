@@ -21,6 +21,7 @@ public interface UtenteRepository extends JpaRepository<Utente,Long> {
     Boolean existsByEmail(String email);
 
 
+
 /*
     @Query("SELECT new com.roytuts.spring.data.jpa.left.right.inner.cross.join.dto.ClienteOrdineDto(u.nomeCliente, u.cognomeCliente, u.idCliente, o.idOrdine)  "
             + "FROM Utente u INNER JOIN u.ordines o")

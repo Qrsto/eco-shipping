@@ -19,59 +19,47 @@ import java.util.*;
 @Entity
 public class Utente  {
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_utente")
-    private Long idUtente;      //si incrementa da solo ogni volta che si registra un nuovo utente
+    private long idUtente;
+    @Column(name = "username")
     private String username;
+    @Column(name = "password")
     private String password;
+    @Column(name = "nome")
     private String nome;
+    @Column(name = "cognome")
     private String cognome;
+    @Column(name = "email")
     private String email;
-
-
-
     @Column(name = "indirizzo_residenza")
     private String indirizzoResidenza;
+    @Column(name = "citta")
     private String citta;
+    @Column(name = "cap")
     private String cap;
-
-
     @Column(name = "data_nas")
     private Date dataNasc;
     @Column(name = "num_telefono")
     private String mobile;
-
+    @Column(name = "iban")
     private String iban;
-
-    /*@Enumerated(EnumType.STRING)
-    @Column(name = "tipo_utente")
-    private TipoUtente tipoUtente;*/
-
     @Column(name = "longitudine_rider")
     private double longitudineRider;
     @Column(name = "latitudine_rider")
     private double latitudineRider;
     @Column(name = "disponibilita_lavoro")
     private boolean disponibilitaLavoro;
-
-
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
-
     @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-
-
-
     @Column(name = "locked")
     private Boolean locked = false;
-
     @Column(name = "enabled")
     private Boolean enabled = true;
 

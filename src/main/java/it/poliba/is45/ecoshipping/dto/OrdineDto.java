@@ -33,4 +33,5 @@ public class OrdineDto {
     private Double latitudinePartenza;
     private Double longitudineDestinazione;
     private Double latitudineDestinazione;
+    private int idUtente;
 }

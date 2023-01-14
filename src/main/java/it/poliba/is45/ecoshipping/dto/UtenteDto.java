@@ -16,22 +16,15 @@ import java.util.Date;
 
 
 public class UtenteDto {
-    private Long idUtente;
+
+    private long idUtente;
     private String nome;
     private String cognome;
     private Date dataNas;
-    private String indirizzoResidenza;  //applicarlo a tutte lentita
+    private String indirizzoResidenza;
     private String citta;
     private String cap;
-    private String mobile;
-    private String password;
     private String username;
-    private ERole ERole;
     private String iban;
-
-
-
-
-
 
 }

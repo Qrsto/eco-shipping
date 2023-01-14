@@ -14,7 +14,8 @@ import java.util.List;
 
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, allowCredentials = "true")
+@RequestMapping("/api/utente")
 public class UtenteController {
 
     @Autowired
@@ -45,10 +46,21 @@ public class UtenteController {
 
    */
 
-    @GetMapping("/utente/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<UtenteDto> getUserById (@PathVariable Long id) {
         try{
             UtenteDto utenteDto = utenteService.findUtenteById(id);
+            return ResponseEntity.ok(utenteDto);
+        } catch (RuntimeException exception) {
+            exception.printStackTrace();
+            return null;
+        }
+    }
+
+    @GetMapping("/{username}")
+    public ResponseEntity<UtenteDto> getUserByUsername (@PathVariable String username) {
+        try{
+            UtenteDto utenteDto = utenteService.findUtenteByUsername(username);
             return ResponseEntity.ok(utenteDto);
         } catch (RuntimeException exception) {
             exception.printStackTrace();

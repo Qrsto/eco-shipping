@@ -28,13 +28,9 @@ public class UtenteService {
         utenteDto.setIndirizzoResidenza(utente.getIndirizzoResidenza());
         utenteDto.setCitta(utenteDto.getCitta());
         utenteDto.setCap(utente.getCap());
-        utenteDto.setMobile(utente.getMobile());
-        utenteDto.setPassword(utente.getPassword());
         utenteDto.setIban(utente.getIban());
         utenteDto.setUsername(utente.getUsername());
         utenteDto.setDataNas(utente.getDataNasc());
-        utenteDto.setCitta(utente.getCitta());
-        //devi sempre gestire la visualizzazione dell'iban in base al caso (vedi findAllByTipoUtente)
         return utenteDto;
     }
 
@@ -73,6 +69,16 @@ public class UtenteService {
             throw new RuntimeException("Nessun utente trovato con id:  " + id);
 
     }
+    public UtenteDto findUtenteByUsername (String username)  {
+        Optional<Utente> utente = utenteRepository.findByUsername(username);
+        if (utente.isPresent()) {
+            UtenteDto utenteDto = toUtenteDto(utente.get());
+            return utenteDto;
+        }
+        else
+            throw new RuntimeException("Nessun utente trovato con username:  " + username);
+
+    }
 
 /*
     public Utente createNewClientUser (UtenteDto utenteDto) {
@@ -108,8 +114,6 @@ public class UtenteService {
         newUser.setCitta(utenteDto.getCitta());
         newUser.setIndirizzoResidenza(utenteDto.getIndirizzoResidenza());
         newUser.setDataNasc(utenteDto.getDataNas());
-        newUser.setMobile(utenteDto.getMobile());
-        newUser.setPassword(utenteDto.getPassword());
         newUser.setDisponibilitaLavoro(false);
         newUser.setIban(utenteDto.getIban());
         newUser.setLongitudineRider(10.2548441);
