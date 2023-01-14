@@ -3,6 +3,7 @@ package it.poliba.is45.ecoshipping.repository;
 import it.poliba.is45.ecoshipping.domain.Ordine;
 import it.poliba.is45.ecoshipping.domain.Utente;
 import it.poliba.is45.ecoshipping.dto.OrdineDto;
+import it.poliba.is45.ecoshipping.dto.UtenteDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -20,6 +21,7 @@ public interface OrdineRepository extends JpaRepository<Ordine, Integer> {
     float updateCostoFinaleBy(float costoFinale);
 
     Optional<Ordine> findById (int id);
+    //Ordine findById_Utente (long id_utente);
     List<Ordine> findAll();
 
 

@@ -4,10 +4,12 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import it.poliba.is45.ecoshipping.domain.Ordine;
 
+import it.poliba.is45.ecoshipping.domain.Utente;
 import it.poliba.is45.ecoshipping.dto.OrdineDto;
 
 import it.poliba.is45.ecoshipping.dto.UtenteDto;
 import it.poliba.is45.ecoshipping.service.OrdineService;
+import it.poliba.is45.ecoshipping.service.UtenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -24,6 +26,7 @@ public class OrdineController {
 
     @Autowired
     OrdineService ordineService;
+    UtenteService utenteService;
 
     @GetMapping("/orders")
     ResponseEntity<List<OrdineDto>> getAllOrders () {
@@ -37,7 +40,7 @@ public class OrdineController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<OrdineDto> getOrderById (@PathVariable int id) {
+    public ResponseEntity<OrdineDto> getOrderById (@PathVariable int id){
         try{
             OrdineDto ordineDto = ordineService.findOrdineById(id);
             return ResponseEntity.ok(ordineDto);
@@ -46,6 +49,19 @@ public class OrdineController {
             return null;
         }
     }
+
+    /*
+    @GetMapping("/userorders/{id_utente}")
+    public ResponseEntity<OrdineDto> getOrderById_utente (@PathVariable long id_utente){
+        try{
+            OrdineDto ordineDto = ordineService.findOrdineById_Utente(id_utente);
+            return ResponseEntity.ok(ordineDto);
+        } catch (RuntimeException exception) {
+            exception.printStackTrace();
+            return null;
+        }
+    }
+*/
 
 /*
     @PutMapping("/ordine/costofinale")

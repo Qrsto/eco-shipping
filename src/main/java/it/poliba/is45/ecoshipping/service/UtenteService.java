@@ -59,16 +59,29 @@ public class UtenteService {
     Come si gestisce il metodo ???
 */
 
-    public UtenteDto findUtenteById (Long id)  {
-        Optional<Utente> utente = utenteRepository.findById(id);
+    public UtenteDto findUtenteById (long idUtente)  {
+        Optional<Utente> utente = utenteRepository.findById(idUtente);
         if (utente.isPresent()) {
             UtenteDto utenteDto = toUtenteDto(utente.get());
             return utenteDto;
         }
         else
-            throw new RuntimeException("Nessun utente trovato con id:  " + id);
+            throw new RuntimeException("Nessun utente trovato con id:  " + idUtente);
 
     }
+
+   /* public Utente findUtenteNotDtoById (long idUtente)  {
+        Optional<Utente> utente = utenteRepository.findById(idUtente);
+        if (utente.isPresent()) {
+           return utente.get();
+        }
+        else
+            throw new RuntimeException("Nessun utente trovato con id:  " + idUtente);
+
+    }
+
+*/
+
     public UtenteDto findUtenteByUsername (String username)  {
         Optional<Utente> utente = utenteRepository.findByUsername(username);
         if (utente.isPresent()) {

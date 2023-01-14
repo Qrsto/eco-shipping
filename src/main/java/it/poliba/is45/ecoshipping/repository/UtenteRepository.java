@@ -16,6 +16,8 @@ public interface UtenteRepository extends JpaRepository<Utente,Long> {
     //List<Utente> findAllByRole(ERole ERole);
     Optional<Utente> findByUsername(String username);
 
+    //Optional<Utente> findUtenteNotDtoById(long idUtente);
+
     Boolean existsByUsername(String username);
 
     Boolean existsByEmail(String email);

@@ -13,6 +13,7 @@ import it.poliba.is45.ecoshipping.repository.OrdineRepository;
 
 import it.poliba.is45.ecoshipping.repository.TabellaConfigurazioneRepository;
 
+import it.poliba.is45.ecoshipping.repository.UtenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,7 @@ public class OrdineService {
 
     @Autowired
     OrdineRepository ordineRepository;
+    UtenteRepository utenteRepository;
     @Autowired
     private TabellaConfigurazioneRepository tabellaConfigurazioneRepository;
 
@@ -75,7 +77,21 @@ public class OrdineService {
 
     }
 
+   /* public OrdineDto findOrdineById_Utente (long id_utente)  {
 
+        Optional<Utente> utente = utenteRepository.findUtenteNotDtoById(id_utente);
+        Utente utente1 = utente.get();
+
+        Optional<Ordine> ordine = ordineRepository.findById_Utente();
+        if (ordine.isPresent()) {
+            OrdineDto ordineDto = toOrdineDto(ordine.get());
+            return ordineDto;
+        }
+        else
+            throw new RuntimeException("Nessun ordine trovato con id:  " + id_utente);
+
+    }
+*/
     private OrdineDto toOrdineDto(Ordine ordine) {
         OrdineDto ordineDto = new OrdineDto();
         ordineDto.setIdOrdine(ordine.getIdOrdine());
@@ -93,6 +109,7 @@ public class OrdineService {
         ordineDto.setLatitudinePartenza(ordine.getLatitudinePartenza());
         ordineDto.setLongitudineDestinazione(ordine.getLongitudineDestinazione());
         ordineDto.setLatitudineDestinazione(ordine.getLatitudineDestinazione());
+        ordineDto.setId_utente(ordine.getUtente().getIdUtente());
         return ordineDto;
     }
 
