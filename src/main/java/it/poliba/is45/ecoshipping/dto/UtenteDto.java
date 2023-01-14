@@ -2,6 +2,7 @@ package it.poliba.is45.ecoshipping.dto;
 
 
 import it.poliba.is45.ecoshipping.domain.ERole;
+import it.poliba.is45.ecoshipping.domain.Utente;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,5 +27,4 @@ public class UtenteDto {
     private String cap;
     private String username;
     private String iban;
-
 }
