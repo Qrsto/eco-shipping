@@ -45,7 +45,7 @@ public class UserDetailsImpl implements UserDetails {
         .collect(Collectors.toList());
 
     return new UserDetailsImpl(
-        user.getIdUtente(),
+            (long) user.getIdUtente(),
         user.getUsername(), 
         user.getEmail(),
         user.getPassword(), 

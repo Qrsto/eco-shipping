@@ -50,18 +50,18 @@ public class OrdineController {
         }
     }
 
-    /*
+
     @GetMapping("/userorders/{id_utente}")
-    public ResponseEntity<OrdineDto> getOrderById_utente (@PathVariable long id_utente){
+    public ResponseEntity<List<OrdineDto>> getOrderById_utente (@PathVariable int id_utente){
         try{
-            OrdineDto ordineDto = ordineService.findOrdineById_Utente(id_utente);
-            return ResponseEntity.ok(ordineDto);
+            List<OrdineDto> ordineDtolist = ordineService.findOrdineById_Utente(id_utente);
+            return ResponseEntity.ok(ordineDtolist);
         } catch (RuntimeException exception) {
             exception.printStackTrace();
             return null;
         }
     }
-*/
+
 
 /*
     @PutMapping("/ordine/costofinale")

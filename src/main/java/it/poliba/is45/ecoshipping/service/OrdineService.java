@@ -24,6 +24,7 @@ public class OrdineService {
 
     @Autowired
     OrdineRepository ordineRepository;
+    @Autowired
     UtenteRepository utenteRepository;
     @Autowired
     private TabellaConfigurazioneRepository tabellaConfigurazioneRepository;
@@ -77,21 +78,36 @@ public class OrdineService {
 
     }
 
-   /* public OrdineDto findOrdineById_Utente (long id_utente)  {
+    public List<OrdineDto> findOrdineById_Utente (int id_utente)  {
 
-        Optional<Utente> utente = utenteRepository.findUtenteNotDtoById(id_utente);
-        Utente utente1 = utente.get();
+        List<Utente> utentelist = utenteRepository.findAll();
+        UtenteDto user = null;
+        for (Utente utente : utentelist){
 
-        Optional<Ordine> ordine = ordineRepository.findById_Utente();
-        if (ordine.isPresent()) {
-            OrdineDto ordineDto = toOrdineDto(ordine.get());
-            return ordineDto;
+            if(utente.getIdUtente() == id_utente){
+
+                UtenteDto utenteDto = toUtenteDto(utente);
+                user = utenteDto;
+
+            }
+
         }
-        else
-            throw new RuntimeException("Nessun ordine trovato con id:  " + id_utente);
+        int x = user.getIdUtente();
+        List<Ordine> ordinelist = ordineRepository.findAll();
+        List<OrdineDto> ordineDtoList = new ArrayList<>();
+        for (Ordine ordine : ordinelist) {
 
+            if(ordine.getUtente().getIdUtente() == x){
+
+                OrdineDto ordineDto = toOrdineDto(ordine);
+                ordineDtoList.add(ordineDto);
+
+            }
+
+        }
+        return ordineDtoList;
     }
-*/
+
     private OrdineDto toOrdineDto(Ordine ordine) {
         OrdineDto ordineDto = new OrdineDto();
         ordineDto.setIdOrdine(ordine.getIdOrdine());
@@ -111,6 +127,20 @@ public class OrdineService {
         ordineDto.setLatitudineDestinazione(ordine.getLatitudineDestinazione());
         ordineDto.setId_utente(ordine.getUtente().getIdUtente());
         return ordineDto;
+    }
+
+    private UtenteDto toUtenteDto(Utente utente) {
+        UtenteDto utenteDto = new UtenteDto();
+        utenteDto.setIdUtente(utente.getIdUtente());
+        utenteDto.setNome(utente.getNome());
+        utenteDto.setCognome(utente.getCognome());
+        utenteDto.setIndirizzoResidenza(utente.getIndirizzoResidenza());
+        utenteDto.setCitta(utenteDto.getCitta());
+        utenteDto.setCap(utente.getCap());
+        utenteDto.setIban(utente.getIban());
+        utenteDto.setUsername(utente.getUsername());
+        utenteDto.setDataNas(utente.getDataNasc());
+        return utenteDto;
     }
 
     private HashMap<String,Float> toHashMapFloat () {

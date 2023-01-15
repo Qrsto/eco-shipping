@@ -47,7 +47,7 @@ public class UtenteController {
    */
 
     @GetMapping("/{id}")
-    public ResponseEntity<UtenteDto> getUserById (@PathVariable Long id) {
+    public ResponseEntity<UtenteDto> getUserById (@PathVariable int id) {
         try{
             UtenteDto utenteDto = utenteService.findUtenteById(id);
             return ResponseEntity.ok(utenteDto);
@@ -56,7 +56,7 @@ public class UtenteController {
             return null;
         }
     }
-
+/*
     @GetMapping("/{username}")
     public ResponseEntity<UtenteDto> getUserByUsername (@PathVariable String username) {
         try{
@@ -68,7 +68,7 @@ public class UtenteController {
         }
     }
 
-
+*/
 
 
 }

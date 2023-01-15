@@ -59,15 +59,20 @@ public class UtenteService {
     Come si gestisce il metodo ???
 */
 
-    public UtenteDto findUtenteById (long idUtente)  {
-        Optional<Utente> utente = utenteRepository.findById(idUtente);
-        if (utente.isPresent()) {
-            UtenteDto utenteDto = toUtenteDto(utente.get());
-            return utenteDto;
-        }
-        else
-            throw new RuntimeException("Nessun utente trovato con id:  " + idUtente);
+    public UtenteDto findUtenteById (int idUtente)  {
+        List<Utente> utentelist = utenteRepository.findAll();
+        UtenteDto user = null;
+        for (Utente utente : utentelist){
 
+            if(utente.getIdUtente() == idUtente){
+
+                UtenteDto utenteDto = toUtenteDto(utente);
+                user = utenteDto;
+                
+            }
+            
+        }
+        return user;
     }
 
    /* public Utente findUtenteNotDtoById (long idUtente)  {

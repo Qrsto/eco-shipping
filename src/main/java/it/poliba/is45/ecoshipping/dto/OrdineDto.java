@@ -33,5 +33,5 @@ public class OrdineDto {
     private Double latitudinePartenza;
     private Double longitudineDestinazione;
     private Double latitudineDestinazione;
-    private long id_utente;
+    private int id_utente;
 }

@@ -3,6 +3,7 @@ package it.poliba.is45.ecoshipping.repository;
 
 import it.poliba.is45.ecoshipping.domain.ERole;
 import it.poliba.is45.ecoshipping.domain.Utente;
+import it.poliba.is45.ecoshipping.dto.UtenteDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -19,8 +20,9 @@ public interface UtenteRepository extends JpaRepository<Utente,Long> {
     //Optional<Utente> findUtenteNotDtoById(long idUtente);
 
     Boolean existsByUsername(String username);
-
+    //UtenteDto findUtenteById(int idUtente);
     Boolean existsByEmail(String email);
+   // List<UtenteDto> findAllUsers();
 
 
 
