@@ -92,39 +92,30 @@ public class AuthController {
                signUpRequest.getEmail(),
                encoder.encode(signUpRequest.getPassword()));
 
-    Set<String> strRoles = signUpRequest.getRole();
+    String strRoles = signUpRequest.getRole();
     Set<Role> roles = new HashSet<>();
 
     if (strRoles == null) {
-      Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-          .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-      roles.add(userRole);
-    } else {
-      strRoles.forEach(role -> {
-        switch (role) {
-        case "admin":
-          Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
+      return ResponseEntity
+              .badRequest()
+              .body(new MessageResponse("Error: Role Utente can't be null!"));}
+      else if ( strRoles.equals("ROLE_USER")){
+         Role userRole = roleRepository.findByName(ERole.ROLE_USER)
               .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-          roles.add(adminRole);
-
-          break;
-        case "rider":
-          Role riderRole = roleRepository.findByName(ERole.ROLE_RIDER)
+         roles.add(userRole);
+      }
+      else if ( strRoles.equals("ROLE_RIDER")){
+      Role riderRole = roleRepository.findByName(ERole.ROLE_RIDER)
               .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-          roles.add(riderRole);
-
-          break;
-        default:
-          Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-          roles.add(userRole);
-        }
-      });
+      roles.add(riderRole);
     }
-
+      else if (strRoles.equals("ROLE_ADMIN")){
+      Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
+              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+      roles.add(adminRole);
+    }
     user.setRoles(roles);
     userRepository.save(user);
-
     return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
   }
 }
