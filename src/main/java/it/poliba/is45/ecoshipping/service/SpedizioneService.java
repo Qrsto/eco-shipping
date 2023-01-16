@@ -45,8 +45,19 @@ public class SpedizioneService {
             SpedizioneDto spedizioneDto = toSpedizioneDto(spedizione.get());
             return spedizioneDto;
         }
-        else
-            throw new RuntimeException("Nessuna spedizione trovata con id:  " + id);
+        else{
+
+            SpedizioneDto spedizione2 = new SpedizioneDto();
+            spedizione2.setId_utente(0);
+            spedizione2.setDataEvasione(null);
+            spedizione2.setIdRider(0);
+            spedizione2.setTipoStato(null);
+            spedizione2.setId_utente(0);
+            return spedizione2;
+
+
+        }
+
 
     }
 
