@@ -96,6 +96,8 @@ public class Utente  {
     private Set<Spedizione> spedizione;
 
     //relazione 1:N (bidirezionale con tabella intermedia Ordine)
+
+
     @OneToMany(mappedBy = "utente")
     private Set<Ordine> ordini;
 

@@ -32,6 +32,9 @@ public class OrdineService {
 
     private Ordine utilsForCreation (OrdineDto ordineDto){
         Ordine newOrdine = new Ordine();
+        Utente user = new Utente();
+        user.setIdUtente(ordineDto.getId_utente());
+        newOrdine.setUtente(user);
         newOrdine.setIdOrdine(ordineDto.getIdOrdine());
         newOrdine.setIndirizzoPartenza(ordineDto.getIndirizzoPartenza());
         newOrdine.setIndirizzoConsegna(ordineDto.getIndirizzoConsegna());
