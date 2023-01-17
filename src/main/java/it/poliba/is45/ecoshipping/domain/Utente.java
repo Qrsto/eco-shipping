@@ -90,6 +90,7 @@ public class Utente  {
         return enabled;
     }
 
+
     //relazione 1:N (bidirezionale con spedizione)
     @OneToMany(mappedBy = "utente")
     private Set<Spedizione> spedizione;
@@ -104,4 +105,7 @@ public class Utente  {
         this.password=password;
     }
 
+    public boolean getDisponibilitaLavoro() {
+        return this.disponibilitaLavoro;
+    }
 }

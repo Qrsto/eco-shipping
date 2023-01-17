@@ -27,4 +27,6 @@ public class UtenteDto {
     private String cap;
     private String username;
     private String iban;
+
+    private boolean disponibilitaLavoro;
 }

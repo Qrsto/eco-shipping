@@ -26,11 +26,12 @@ public class UtenteService {
         utenteDto.setNome(utente.getNome());
         utenteDto.setCognome(utente.getCognome());
         utenteDto.setIndirizzoResidenza(utente.getIndirizzoResidenza());
-        utenteDto.setCitta(utenteDto.getCitta());
+        utenteDto.setCitta(utente.getCitta());
         utenteDto.setCap(utente.getCap());
         utenteDto.setIban(utente.getIban());
         utenteDto.setUsername(utente.getUsername());
         utenteDto.setDataNas(utente.getDataNasc());
+        utenteDto.setDisponibilitaLavoro(utente.getDisponibilitaLavoro());
         return utenteDto;
     }
 
