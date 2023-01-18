@@ -1,6 +1,7 @@
 package it.poliba.is45.ecoshipping.service;
 import it.poliba.is45.ecoshipping.domain.Ordine;
 
+import it.poliba.is45.ecoshipping.domain.Spedizione;
 import it.poliba.is45.ecoshipping.domain.TabellaConfigurazione;
 import it.poliba.is45.ecoshipping.domain.Utente;
 import it.poliba.is45.ecoshipping.dto.OrdineDto;
@@ -56,6 +57,7 @@ public class OrdineService {
 
     public Ordine createNewOrder (OrdineDto ordineDto){
         Ordine newOrdine = utilsForCreation(ordineDto);
+        newOrdine.setSpedizione(new Spedizione());
         return ordineRepository.save(newOrdine);
 
     }

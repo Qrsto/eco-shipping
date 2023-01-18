@@ -37,9 +37,7 @@ public class Spedizione {
     private String noteStatoNc;
 
     // relazione 1:1 bidirezionale
-    @OneToOne
-    @JoinColumn(name = "id_ordine")
-    private Ordine ordine;
+
 
     //relazione N:1 bidirezionale con Utente
     @ManyToOne
@@ -48,7 +46,9 @@ public class Spedizione {
 
 
 
-
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_ordine", nullable = false)
+    private Ordine ordine;
 
 
 

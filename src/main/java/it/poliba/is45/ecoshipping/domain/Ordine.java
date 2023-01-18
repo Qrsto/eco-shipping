@@ -16,7 +16,7 @@ import java.util.Set;
 
 
 @Entity
-public class Ordine {
+public class Ordine{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -67,9 +67,9 @@ public class Ordine {
 	Infine, con orphanRemoval = true indichiamo che se un figlio, Spedizione, rimane "orfano" del padre, Ordine,
 	(ovvero ha foreign key null), deve essere cancellato automaticamente.
 	*/
-	@OneToOne(mappedBy = "ordine",cascade = CascadeType.ALL, orphanRemoval = true)
-	//Con @PrimaryKeyJoinColumn, indichiamo a JPA che la tabella spedizione ha come chiave primaria la stessa della tabella Ordine.
-	@PrimaryKeyJoinColumn
+	@OneToOne(fetch = FetchType.LAZY,
+			cascade =  CascadeType.ALL,
+			mappedBy = "ordine")
 	private Spedizione spedizione;
 
 
