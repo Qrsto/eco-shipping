@@ -45,7 +45,7 @@ public class OrdineService {
         newOrdine.setNoteConsegna(ordineDto.getNoteConsegna());
         newOrdine.setNumTelefonoDestinatario(ordineDto.getNumTelefonoDestinatario());
         newOrdine.setMetodoPagamento(ordineDto.getMetodoPagamento());
-        newOrdine.setCostoFinale(0.0F);
+        newOrdine.setCostoFinale(ordineDto.getCostoFinale());
         newOrdine.setLongitudinePartenza(0.0);
         newOrdine.setLatitudinePartenza(0.0);
         newOrdine.setLongitudineDestinazione(0.0);

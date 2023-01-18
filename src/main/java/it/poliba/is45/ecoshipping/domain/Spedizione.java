@@ -36,6 +36,8 @@ public class Spedizione {
     @Column(name = "note_stato_nc")
     private String noteStatoNc;
 
+
+
     // relazione 1:1 bidirezionale
 
 
@@ -43,6 +45,7 @@ public class Spedizione {
     @ManyToOne
     @JoinColumn(name = "id_utente")
     private Utente utente;
+
 
 
 
