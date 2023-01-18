@@ -31,7 +31,7 @@ public class Spedizione {
     private LocalDateTime dataOraPresaInCarico;
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_stato")
-    private TipoStato tipoStato;
+    private TipoStato tipoStato = TipoStato.NUOVO;
     //Può essere anche null (se tipostato != "Non c..")
     @Column(name = "note_stato_nc")
     private String noteStatoNc;
